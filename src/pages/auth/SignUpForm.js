@@ -9,6 +9,13 @@ const SignUpForm = () => {
   });
   const { username, password1, password2 } = signUpData;
 
+  const handleChange = (event) => {
+    setSignUpData({
+      ...signUpData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   return (
     <div className={styles.center}>
       <form>
@@ -19,6 +26,7 @@ const SignUpForm = () => {
             placeholder="Enter Username"
             name="username"
             value={username}
+            onChange={handleChange}
             required
           ></input>
           <input
@@ -26,6 +34,7 @@ const SignUpForm = () => {
             placeholder="Enter Password"
             name="password1"
             value={password1}
+            onChange={handleChange}
             required
           ></input>
           <input
@@ -33,6 +42,7 @@ const SignUpForm = () => {
             placeholder="Confirm Password"
             name="password2"
             value={password2}
+            onChange={handleChange}
             required
           ></input>
           <div>
