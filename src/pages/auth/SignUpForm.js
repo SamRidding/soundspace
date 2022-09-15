@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import styles from "../../styles/SignUpForm.module.css"
+import styles from "../../styles/SignUpForm.module.css";
 
 const SignUpForm = () => {
   const [signUpData, setSignUpData] = useState({
@@ -11,8 +11,10 @@ const SignUpForm = () => {
   });
 
   const { username, password1, password2 } = signUpData;
-  
+
   const history = useHistory();
+
+  const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
     setSignUpData({
@@ -44,27 +46,39 @@ const SignUpForm = () => {
             onChange={handleChange}
             required
           ></input>
+          {errors.username?.map((message, idx) => (
+            <div key={idx}>{message}</div>
+          ))}
           <input
-            type="text"
+            type="password"
             placeholder="Enter Password"
             name="password1"
             value={password1}
             onChange={handleChange}
             required
           ></input>
+          {errors.password1?.map((message, idx) => (
+            <div key={idx}>{message}</div>
+          ))}
           <input
-            type="text"
+            type="password"
             placeholder="Confirm Password"
             name="password2"
             value={password2}
             onChange={handleChange}
             required
           ></input>
+          {errors.password2?.map((message, idx) => (
+            <div key={idx}>{message}</div>
+          ))}
           <div>
-            <button type="submit">
-              Sign Up
-            </button>
+            <button type="submit">Sign Up</button>
           </div>
+          {errors.non_field_errors?.map((message, idx) => (
+            <div key={idx}>
+              {message}
+            </div>
+          ))}
         </div>
       </form>
     </div>
