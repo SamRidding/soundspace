@@ -1,4 +1,6 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import styles from "../../styles/SignUpForm.module.css"
 
 const SignUpForm = () => {
@@ -7,7 +9,10 @@ const SignUpForm = () => {
     password1: "",
     password2: "",
   });
+
   const { username, password1, password2 } = signUpData;
+  
+  const history = useHistory();
 
   const handleChange = (event) => {
     setSignUpData({
@@ -16,9 +21,19 @@ const SignUpForm = () => {
     });
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await axios.post("/dj-rest-auth/registration/", signUpData);
+      history.push("/signin");
+    } catch (err) {
+      setErrors(err.response?.data);
+    }
+  };
+
   return (
     <div className={styles.center}>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className={styles.container}>
           <h1>SIGN UP</h1>
           <input
