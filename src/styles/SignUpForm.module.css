@@ -24,6 +24,7 @@ input {
     height: 1.6rem;
     width: 50%;
     border-radius: 5px;
+    font-weight: bold;
 }
 
 button {
