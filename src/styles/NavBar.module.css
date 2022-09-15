@@ -6,31 +6,35 @@
     justify-content: space-between;
 }
 
-.Logo {
+.LogoContain {
     margin: 1rem;
 }
 
-.Logo h1 {
+.Logo {
+    color: #fafafa;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+/* .Logo h1 {
     margin: 0;
     font-family: 'Titillium Web', sans-serif;
-}
+} */
 
 .Navlinks {
     margin: 1rem;
 }
 
-.Navlink {
-    list-style: none;
-    display: flex;
-}
-
-.Navlink li {
-    padding: 0 0.8rem 0 0.8rem;
-}
-
-.Navlink li a {
+.NavLink {
     text-decoration: none;
+    padding: 0 0.8rem 0 0.8rem;
     color: #fafafa;
+    font-family: 'Titillium Web', sans-serif;
     font-size: 1.2rem;
 }
 
+.Navlist {
+    list-style: none;
+    display: flex;
+}

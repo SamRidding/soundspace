@@ -5,22 +5,18 @@ import { NavLink } from "react-router-dom";
 const NavBar = () => {
   return (
     <nav className={styles.Nav}>
-      <NavLink to="/">
-        <div className={styles.Logo}>
+      <div className="LogoContain">
+        <NavLink className={styles.Logo} to="/">
           <h1>Logo</h1>
-        </div>
-      </NavLink>
+        </NavLink>
+      </div>
       <div className={styles.Navlinks}>
-        <ul className={styles.Navlink}>
-          <NavLink to="/signup">
-            <li>
-              <a>Sign Up</a>
-            </li>
+        <ul className={styles.Navlist}>
+          <NavLink className={styles.NavLink} to="/signup">
+            <li>Sign Up</li>
           </NavLink>
-          <NavLink to='login'>
-            <li>
-              <a>Log In</a>
-            </li>
+          <NavLink className={styles.NavLink} to="login">
+            <li>Log In</li>
           </NavLink>
         </ul>
       </div>
