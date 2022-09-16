@@ -14,7 +14,7 @@ const NavBar = () => {
           <NavLink className={styles.NavLink} to="/signup">
             <li>Sign Up</li>
           </NavLink>
-          <NavLink className={styles.NavLink} to="login">
+          <NavLink className={styles.NavLink} to="/login">
             <li>Log In</li>
           </NavLink>
         </ul>
