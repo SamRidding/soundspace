@@ -2,11 +2,18 @@ import React, { useState } from "react";
 import styles from "../../styles/LogInForm.module.css";
 
 const LogInForm = () => {
-  const [signInData, setSignInData] = useState({
+  const [logInData, setLogInData] = useState({
     username: "",
     password: "",
   });
-  const { username, password } = signInData;
+  const { username, password } = logInData;
+
+  const handleChange = (event) => {
+    setLogInData({
+      ...logInData,
+      [event.target.name]: event.target.value,
+    });
+  };
 
   return (
     <div className={styles.center}>
@@ -18,6 +25,7 @@ const LogInForm = () => {
             placeholder="Enter Username"
             name="username"
             value={username}
+            onChange={handleChange}
             required
           ></input>
           <input
@@ -25,6 +33,7 @@ const LogInForm = () => {
             placeholder="Enter Password"
             name="password"
             value={password}
+            onChange={handleChange}
             required
           ></input>
           <div>
