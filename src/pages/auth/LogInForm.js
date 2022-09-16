@@ -9,8 +9,10 @@ const LogInForm = () => {
     username: "",
     password: "",
   });
-  
+
   const { username, password } = logInData;
+
+  const [errors, setErrors] = useState({});
 
   const history = useHistory();
   const handleSubmit = async (event) => {
@@ -19,6 +21,7 @@ const LogInForm = () => {
       await axios.post("/dj-rest-auth/login/", logInData);
       history.push("/");
     } catch (err) {
+      setErrors(err.response?.data);
     }
   };
 
@@ -42,6 +45,9 @@ const LogInForm = () => {
             onChange={handleChange}
             required
           ></input>
+          {errors.username?.map((message, idx) => (
+            <div key={idx}>{message}</div>
+          ))}
           <input
             type="password"
             placeholder="Enter Password"
@@ -50,9 +56,15 @@ const LogInForm = () => {
             onChange={handleChange}
             required
           ></input>
+          {errors.password?.map((message, idx) => (
+            <div key={idx}>{message}</div>
+          ))}
           <div>
             <button type="submit">Log In</button>
           </div>
+          {errors.non_field_errors?.map((message, idx) => (
+            <div key={idx}>{message}</div>
+          ))}
         </div>
       </form>
     </div>
