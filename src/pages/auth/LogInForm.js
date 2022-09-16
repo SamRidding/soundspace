@@ -1,12 +1,26 @@
+import axios from "axios";
 import React, { useState } from "react";
 import styles from "../../styles/LogInForm.module.css";
+
+import { useHistory } from "react-router-dom";
 
 const LogInForm = () => {
   const [logInData, setLogInData] = useState({
     username: "",
     password: "",
   });
+  
   const { username, password } = logInData;
+
+  const history = useHistory();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await axios.post("/dj-rest-auth/login/", logInData);
+      history.push("/");
+    } catch (err) {
+    }
+  };
 
   const handleChange = (event) => {
     setLogInData({
@@ -17,7 +31,7 @@ const LogInForm = () => {
 
   return (
     <div className={styles.center}>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className={styles.container}>
           <h1>LOG IN</h1>
           <input
