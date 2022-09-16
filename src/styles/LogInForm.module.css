@@ -1,0 +1,37 @@
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    width: 50%;
+    background-color: #259C86;
+    border-radius: 5px;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    margin: 0.8rem;
+    border: none;
+    height: 1.6rem;
+    width: 50%;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+button {
+    margin: 0.8rem;
+    height: 2rem;
+    width: 10rem;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+}
