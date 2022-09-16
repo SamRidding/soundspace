@@ -1,12 +1,12 @@
 import axios from "axios";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import styles from "../../styles/LogInForm.module.css";
 
 import { useHistory } from "react-router-dom";
-import { SetCurrentUserContext } from "../../App";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContexts";
 
 const LogInForm = () => {
-  const setCurrentUser = useContext(SetCurrentUserContext)
+  const setCurrentUser = useSetCurrentUser();
 
   const [logInData, setLogInData] = useState({
     username: "",
