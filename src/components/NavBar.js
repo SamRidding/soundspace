@@ -26,6 +26,7 @@ const NavBar = () => {
       <li>Upload</li>
     </NavLink>
   );
+
   const loggedInLinks = (
     <>
       <div className={styles.Navlinks}>
@@ -36,6 +37,7 @@ const NavBar = () => {
               <UserPic src={currentUser?.profile_image} height={40} />
             </li>
           </NavLink>
+          {currentUser && uploadLink}
           <NavLink className={styles.NavLink} to="/" onClick={handleLogOut}>
             <li>Log Out</li>
           </NavLink>
@@ -66,7 +68,7 @@ const NavBar = () => {
             <h1>Logo</h1>
           </NavLink>
         </div>
-        <div>{currentUser && uploadLink}</div>
+        {/* <div>{currentUser && uploadLink}</div> */}
       </div>
       {currentUser ? loggedInLinks : loggedOutLinks}
     </nav>
