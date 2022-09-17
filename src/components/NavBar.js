@@ -10,8 +10,13 @@ const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
-  const loggedInIcons = <>{currentUser?.username}</>;
-  const loggedOutIcons = (
+  const uploadLink = (
+    <NavLink className={styles.NavLink} to="/tracks/upload">
+      <li>Upload</li>
+    </NavLink>
+  );
+  const loggedInLinks = <>{currentUser?.username}</>;
+  const loggedOutLinks = (
     <>
       <div className={styles.Navlinks}>
         <ul className={styles.Navlist}>
@@ -28,12 +33,17 @@ const NavBar = () => {
 
   return (
     <nav className={styles.Nav}>
-      <div className="LogoContain">
-        <NavLink className={styles.Logo} to="/">
-          <h1>Logo</h1>
-        </NavLink>
+      <div className={styles.NavLeft}>
+        <div className="LogoContain">
+          <NavLink className={styles.Logo} to="/">
+            <h1>Logo</h1>
+          </NavLink>
+        </div>
+        <div>
+        {currentUser && uploadLink}
+        </div>
       </div>
-      {currentUser ? loggedInIcons : loggedOutIcons}
+      {currentUser ? loggedInLinks : loggedOutLinks}
     </nav>
   );
 };
