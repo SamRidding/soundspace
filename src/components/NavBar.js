@@ -6,10 +6,20 @@ import {
   useSetCurrentUser,
 } from "../contexts/CurrentUserContexts";
 import UserPic from "./UserPic";
+import axios from "axios";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
+
+  const handleLogOut = async () => {
+    try {
+      await axios.post("dj-rest-auth/logout/");
+      setCurrentUser(null);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const uploadLink = (
     <NavLink className={styles.NavLink} to="/tracks/upload">
@@ -23,13 +33,10 @@ const NavBar = () => {
           <NavLink className={styles.NavLink} to="/">
             <li>
               {currentUser?.username}
-              <UserPic
-                src={currentUser?.profile_image}
-                height={40}
-              />
+              <UserPic src={currentUser?.profile_image} height={40} />
             </li>
           </NavLink>
-          <NavLink className={styles.NavLink} to="/">
+          <NavLink className={styles.NavLink} to="/" onClick={handleLogOut}>
             <li>Log Out</li>
           </NavLink>
         </ul>
