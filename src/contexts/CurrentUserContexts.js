@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { axiosRes, axiosReq } from "../api/axiosDefaults";
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router";
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -47,7 +47,7 @@ export const CurrentUserProvider = ({ children }) => {
       }
     );
 
-    axios.interceptors.response.use(
+    axiosRes.interceptors.response.use(
       (response) => response,
       async (err) => {
         if (err.response?.status === 401) {
