@@ -15,7 +15,20 @@ const NavBar = () => {
       <li>Upload</li>
     </NavLink>
   );
-  const loggedInLinks = <>{currentUser?.username}</>;
+  const loggedInLinks = (
+    <>
+      <div className={styles.Navlinks}>
+        <ul className={styles.Navlist}>
+          <NavLink className={styles.NavLink} to="/">
+            <li>{currentUser?.username}</li>
+          </NavLink>
+          <NavLink className={styles.NavLink} to="/">
+            <li>Log Out</li>
+          </NavLink>
+        </ul>
+      </div>
+    </>
+  );
   const loggedOutLinks = (
     <>
       <div className={styles.Navlinks}>
@@ -39,9 +52,7 @@ const NavBar = () => {
             <h1>Logo</h1>
           </NavLink>
         </div>
-        <div>
-        {currentUser && uploadLink}
-        </div>
+        <div>{currentUser && uploadLink}</div>
       </div>
       {currentUser ? loggedInLinks : loggedOutLinks}
     </nav>
