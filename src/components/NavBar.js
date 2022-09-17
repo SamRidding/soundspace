@@ -5,6 +5,7 @@ import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../contexts/CurrentUserContexts";
+import UserPic from "./UserPic";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -20,7 +21,13 @@ const NavBar = () => {
       <div className={styles.Navlinks}>
         <ul className={styles.Navlist}>
           <NavLink className={styles.NavLink} to="/">
-            <li>{currentUser?.username}</li>
+            <li>
+              {currentUser?.username}
+              <UserPic
+                src={currentUser?.profile_image}
+                height={40}
+              />
+            </li>
           </NavLink>
           <NavLink className={styles.NavLink} to="/">
             <li>Log Out</li>

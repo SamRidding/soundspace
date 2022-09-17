@@ -9,7 +9,7 @@ const UserPic = ({ src, height = 45, text }) => {
         src={src}
         height={height}
         width={height}
-        alt="avatar"
+        alt="Profile Pic"
       />
       {text}
     </span>
