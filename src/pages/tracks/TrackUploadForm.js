@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles/TrackUploadForm.module.css"
 
 const TrackUploadForm = () => {
+
+  const [trackData, setTrackData] = useState({
+    title: "",
+    audio: "",
+    image: "",
+    content: "",
+    status: "",
+  });
+  const { title, audio, image, content, status } = trackData;
 
   return (
     <div className={styles.center}>
