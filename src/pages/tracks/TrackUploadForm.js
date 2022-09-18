@@ -11,6 +11,13 @@ const TrackUploadForm = () => {
   });
   const { title, audio, image, content, status } = trackData;
 
+  const handleChange = (event) => {
+    setTrackData({
+      ...trackData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   return (
     <div className={styles.center}>
       <form>
@@ -21,26 +28,30 @@ const TrackUploadForm = () => {
             placeholder="Title"
             name="title"
             value={title}
+            onChange={handleChange}
           ></input>
           <input
             type="url"
             placeholder="Audio Link"
             name="audio"
             value={audio}
+            onChange={handleChange}
           ></input>
           <input
             type="file"
             placeholder="Image"
             name="image"
             value={image}
+            onChange={handleChange}
           ></input>
           <input
             type="text"
             placeholder="Track Info"
             name="content"
             value={content}
+            onChange={handleChange}
           ></input>
-          <select name="status" id="status" value={status}>
+          <select name="status" id="status" value={status} onChange={handleChange}>
             <option value="DRAFT">DRAFT</option>
             <option value="PUBLISHED">PUBLISHED</option>
           </select>
