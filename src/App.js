@@ -5,6 +5,7 @@ import "./api/axiosDefaults";
 import SignUpForm from "./pages/auth/SignUpForm";
 import LogInForm from "./pages/auth/LogInForm";
 import TrackUploadForm from "./pages/tracks/TrackUploadForm";
+import TrackPage from "./pages/tracks/TrackPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="/login" render={() => <LogInForm />} />
         <Route exact path="/signup" render={() => <SignUpForm />} />
         <Route exact path="/tracks/upload" render={() => <TrackUploadForm />} />
+        <Route exact path="/tracks/:id" render={() => <TrackPage />} />
       </Switch>
     </div>
   );
