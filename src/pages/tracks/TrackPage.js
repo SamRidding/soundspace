@@ -1,7 +1,12 @@
-import { axiosReq } from "../../api/axiosDefaults";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+
 import styles from "../../styles/TrackPage.module.css";
+import { axiosReq } from "../../api/axiosDefaults";
+import { useParams } from "react-router-dom";
+import Track from "./Track";
+
+
+
 
 const TrackPage = () => {
   const { id } = useParams();
@@ -23,7 +28,12 @@ const TrackPage = () => {
     handleMount();
   }, [id]);
 
-  return <div>TrackPage</div>;
+  return (
+    <div>
+        <h1>TrackPage</h1>
+        <Track {...track.results[0]} setTracks={setTrack} />
+    </div>
+  );
 };
 
 export default TrackPage;
