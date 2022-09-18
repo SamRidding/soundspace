@@ -74,6 +74,9 @@ const TrackUploadForm = () => {
             onChange={handleChange}
             ref={imageInput}
           ></input>
+          {errors.image?.map((message, idx) => (
+            <div key={idx}>{message}</div>
+          ))}
           <input
             type="text"
             placeholder="Track Info"
@@ -88,6 +91,11 @@ const TrackUploadForm = () => {
           <div>
             <button type="submit">Post Track</button>
           </div>
+          {errors.non_field_errors?.map((message, idx) => (
+            <div key={idx}>
+              {message}
+            </div>
+          ))}
         </div>
       </form>
     </div>
