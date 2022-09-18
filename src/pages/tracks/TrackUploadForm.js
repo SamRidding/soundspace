@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import styles from "../../styles/TrackUploadForm.module.css"
+import styles from "../../styles/TrackUploadForm.module.css";
 
 const TrackUploadForm = () => {
-
   const [trackData, setTrackData] = useState({
     title: "",
     audio: "",
@@ -21,23 +20,27 @@ const TrackUploadForm = () => {
             type="text"
             placeholder="Title"
             name="title"
+            value={title}
           ></input>
           <input
             type="url"
             placeholder="Audio Link"
             name="audio"
+            value={audio}
           ></input>
           <input
             type="file"
             placeholder="Image"
             name="image"
+            value={image}
           ></input>
           <input
             type="text"
             placeholder="Track Info"
             name="content"
+            value={content}
           ></input>
-          <select name="status" id="status">
+          <select name="status" id="status" value={status}>
             <option value="DRAFT">DRAFT</option>
             <option value="PUBLISHED">PUBLISHED</option>
           </select>
