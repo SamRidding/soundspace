@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "../../styles/TrackUploadForm.module.css";
 
 const TrackUploadForm = () => {
@@ -10,6 +11,9 @@ const TrackUploadForm = () => {
     status: "",
   });
   const { title, audio, image, content, status } = trackData;
+
+  const history = useHistory();
+  const imageInput = useRef(null);
 
   const handleChange = (event) => {
     setTrackData({
