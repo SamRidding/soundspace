@@ -1,5 +1,6 @@
 .interact {
     display: flex;
+    padding: 1rem 0;
 }
 
 .ibtn {
@@ -16,6 +17,15 @@
 
 .ibtn i {
     padding: 0 0.4rem 0 0;
+}
+
+.midsection {
+    display: flex;
+}
+
+.UserInfo {
+    display: flex;
+    flex-direction: column;
 }
 
 .ibtn:hover {

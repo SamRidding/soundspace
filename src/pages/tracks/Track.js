@@ -28,38 +28,48 @@ const Track = (props) => {
   return (
     <div>
       <div>
-        <Link to={`/profiles/${profile_id}`}>
-          <UserPic src={profile_img} />
-          {owner}
-        </Link>
-        <div>
-          <div style={styles.audio}>
-            <ReactPlayer url={audio} />
-          </div>
-          <div>
-            <img src={image} alt={title} />
-          </div>
+        <div style={styles.audio}>
+          <ReactPlayer url={audio} />
         </div>
+        {/* <div>
+          <img src={image} alt={title} />
+        </div> */}
+      </div>
 
-        <div className={styles.interact}>
-          <Link style={{ textDecoration: 'none' }} >
-            <div className={styles.ibtn}>
-              <i class="fas fa-heart"></i>
-              Like
+      <div className={styles.interact}>
+        <Link style={{ textDecoration: "none" }}>
+          <div className={styles.ibtn}>
+            <i class="fas fa-heart"></i>
+            Like
+          </div>
+        </Link>
+        <Link style={{ textDecoration: "none" }}>
+          <div className={styles.ibtn}>
+            <i class="fas fa-comment"></i>
+            Comment
+          </div>
+        </Link>
+        <Link style={{ textDecoration: "none" }}>
+          <div className={styles.ibtn}>
+            <i class="fas fa-retweet"></i>
+            Repost
+          </div>
+        </Link>
+      </div>
+      <div className={styles.midsection}>
+        <div className={styles.UserInfo}>
+          <Link
+            to={`/profiles/${profile_id}`}
+            style={{ textDecoration: "none" }}
+          >
+            <div>
+              <UserPic src={profile_img} />
             </div>
+            <div>{owner}</div>
           </Link>
-          <Link style={{ textDecoration: 'none' }} >
-            <div className={styles.ibtn}>
-              <i class="fas fa-comment"></i>
-              Comment
-            </div>
-          </Link>
-          <Link style={{ textDecoration: 'none' }} >
-            <div className={styles.ibtn}>
-              <i class="fas fa-retweet"></i>
-              Repost
-            </div>
-          </Link>
+        </div>
+        <div>
+          {content}
         </div>
       </div>
     </div>
