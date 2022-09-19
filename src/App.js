@@ -7,8 +7,12 @@ import LogInForm from "./pages/auth/LogInForm";
 import TrackUploadForm from "./pages/tracks/TrackUploadForm";
 import TrackPage from "./pages/tracks/TrackPage";
 import TracksPage from "./pages/tracks/TracksPage";
+import { useCurrentUser } from "./contexts/CurrentUserContexts";
 
 function App() {
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || "";
+  
   return (
     <div className={styles.App}>
       <NavBar />
