@@ -20,6 +20,7 @@ const Track = (props) => {
     likes_count,
     comments_count,
     profile_img,
+    like_id,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -37,12 +38,42 @@ const Track = (props) => {
       </div>
 
       <div className={styles.interact}>
-        <Link style={{ textDecoration: "none" }}>
-          <div className={styles.ibtn}>
-            <i class="fas fa-heart"></i>
-            Like
-          </div>
-        </Link>
+        {is_owner ? (
+          <Link
+            style={{ textDecoration: "none" }}
+            title="You can't like your own track"
+          >
+            <div className={styles.ibtn}>
+              <i class="fas fa-heart"></i>
+              Like
+            </div>
+          </Link>
+        ) : like_id ? (
+          <Link style={{ textDecoration: "none" }}>
+            <div className={styles.ibtn}>
+              <i class="fas fa-heart"></i>
+              Like
+            </div>
+          </Link>
+        ) : currentUser ? (
+          <Link style={{ textDecoration: "none" }}>
+            <div className={styles.ibtn}>
+              <i class="fas fa-heart"></i>
+              Like
+            </div>
+          </Link>
+        ) : (
+          <Link
+            style={{ textDecoration: "none" }}
+            title="Log in to like tracks"
+          >
+            <div className={styles.ibtn}>
+              <i class="fas fa-heart"></i>
+              Like
+            </div>
+          </Link>
+        )}
+
         <Link style={{ textDecoration: "none" }}>
           <div className={styles.ibtn}>
             <i class="fas fa-comment"></i>
@@ -56,6 +87,7 @@ const Track = (props) => {
           </div>
         </Link>
       </div>
+
       <div className={styles.midcontain}>
         <div className={styles.UserInfo}>
           <Link
