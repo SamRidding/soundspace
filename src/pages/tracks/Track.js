@@ -74,7 +74,7 @@ const Track = (props) => {
             </div>
           </Link>
         ) : currentUser ? (
-          <Link style={{ textDecoration: "none" }}>
+          <Link style={{ textDecoration: "none" }} onClick={handleLike}>
             <div className={styles.ibtn}>
               <i class="fas fa-heart"></i>
               Like
