@@ -1,8 +1,11 @@
 import React from "react";
 import styles from "../../styles/Track.module.css";
+import UserPic from "../../components/UserPic";
 import { useCurrentUser } from "../../contexts/CurrentUserContexts";
 import { Link } from "react-router-dom";
-import UserPic from "../../components/UserPic";
+import ReactPlayer from "react-player";
+
+
 
 const Track = (props) => {
   const {
@@ -31,6 +34,15 @@ const Track = (props) => {
           <UserPic src={profile_img} />
           {owner}
         </Link>
+        <div>
+          <ReactPlayer url={audio} />
+        </div>
+        <div>
+          <img src={image} />
+        </div>
+        <div>
+          
+        </div>
       </div>
     </div>
   );
