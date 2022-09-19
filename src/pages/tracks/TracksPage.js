@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from "react";
 
-const TracksPage = () => {
-  return (
-    <div>TracksPage</div>
-  )
+function TracksPage({ filter = "" }) {
+  const [tracks, setTracks] = useState({ results: [] });
+  const [hasLoaded, setHasLoaded] = useState(false)
+  
+  return <div>Track Page</div>;
 }
 
-export default TracksPage
+export default TracksPage;
