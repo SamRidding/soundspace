@@ -26,10 +26,10 @@ const Track = (props) => {
   const is_owner = currentUser?.username === owner;
 
   return (
-    <div>
-      <div>
-        <div style={styles.audio}>
-          <ReactPlayer url={audio} />
+    <div className={styles.pagecontain}>
+      <div className={styles.topcontain}>
+        <div className={styles.audio}>
+          <ReactPlayer url={audio} width="100%" height="100%" />
         </div>
         {/* <div>
           <img src={image} alt={title} />
@@ -56,7 +56,7 @@ const Track = (props) => {
           </div>
         </Link>
       </div>
-      <div className={styles.midsection}>
+      <div className={styles.midcontain}>
         <div className={styles.UserInfo}>
           <Link
             to={`/profiles/${profile_id}`}
@@ -68,9 +68,7 @@ const Track = (props) => {
             <div>{owner}</div>
           </Link>
         </div>
-        <div>
-          {content}
-        </div>
+        <div>{content}</div>
       </div>
     </div>
   );

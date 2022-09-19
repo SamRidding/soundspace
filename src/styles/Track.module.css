@@ -1,6 +1,21 @@
+.pagecontain {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.topcontain {
+    height: 20rem;
+}
+
+.audio {
+    height: 100%;
+}
+
 .interact {
     display: flex;
     padding: 1rem 0;
+    border-bottom: 1px solid rgb(190, 190, 190);
+    width: 50%;
 }
 
 .ibtn {
@@ -19,8 +34,9 @@
     padding: 0 0.4rem 0 0;
 }
 
-.midsection {
+.midcontain {
     display: flex;
+    padding: 1rem;
 }
 
 .UserInfo {

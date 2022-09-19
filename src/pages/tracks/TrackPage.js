@@ -30,7 +30,6 @@ const TrackPage = () => {
 
   return (
     <div>
-        <h1>TrackPage</h1>
         <Track {...track.results[0]} setTracks={setTrack} />
     </div>
   );
