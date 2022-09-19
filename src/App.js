@@ -12,12 +12,20 @@ import { useCurrentUser } from "./contexts/CurrentUserContexts";
 function App() {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
-  
+
   return (
     <div className={styles.App}>
       <NavBar />
       <Switch>
-        <Route exact path="/" render={() => <TracksPage />} />
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <TracksPage
+              filter={`owner__followed__owner__profile=${profile_id}&`}
+            />
+          )}
+        />
         <Route exact path="/login" render={() => <LogInForm />} />
         <Route exact path="/signup" render={() => <SignUpForm />} />
         <Route exact path="/tracks/upload" render={() => <TrackUploadForm />} />
