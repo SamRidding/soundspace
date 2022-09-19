@@ -1,0 +1,23 @@
+.interact {
+    display: flex;
+}
+
+.ibtn {
+    margin: 0 0.5rem;
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgb(0, 0, 0);
+    font-size: 0.8rem;
+    padding: 0.2rem 1rem;
+}
+
+.ibtn i {
+    padding: 0 0.4rem 0 0;
+}
+
+.ibtn:hover {
+    border: 1px solid rgb(140, 140, 140);
+}

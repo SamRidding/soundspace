@@ -5,8 +5,6 @@ import { useCurrentUser } from "../../contexts/CurrentUserContexts";
 import { Link } from "react-router-dom";
 import ReactPlayer from "react-player";
 
-
-
 const Track = (props) => {
   const {
     id,
@@ -35,13 +33,33 @@ const Track = (props) => {
           {owner}
         </Link>
         <div>
-          <ReactPlayer url={audio} />
+          <div style={styles.audio}>
+            <ReactPlayer url={audio} />
+          </div>
+          <div>
+            <img src={image} alt={title} />
+          </div>
         </div>
-        <div>
-          <img src={image} />
-        </div>
-        <div>
-          
+
+        <div className={styles.interact}>
+          <Link style={{ textDecoration: 'none' }} >
+            <div className={styles.ibtn}>
+              <i class="fas fa-heart"></i>
+              Like
+            </div>
+          </Link>
+          <Link style={{ textDecoration: 'none' }} >
+            <div className={styles.ibtn}>
+              <i class="fas fa-comment"></i>
+              Comment
+            </div>
+          </Link>
+          <Link style={{ textDecoration: 'none' }} >
+            <div className={styles.ibtn}>
+              <i class="fas fa-retweet"></i>
+              Repost
+            </div>
+          </Link>
         </div>
       </div>
     </div>
