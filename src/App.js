@@ -6,13 +6,14 @@ import SignUpForm from "./pages/auth/SignUpForm";
 import LogInForm from "./pages/auth/LogInForm";
 import TrackUploadForm from "./pages/tracks/TrackUploadForm";
 import TrackPage from "./pages/tracks/TrackPage";
+import TracksPage from "./pages/tracks/TracksPage";
 
 function App() {
   return (
     <div className={styles.App}>
       <NavBar />
       <Switch>
-        <Route exact path="/" render={() => <h1>Home page</h1>} />
+        <Route exact path="/" render={() => <TracksPage />} />
         <Route exact path="/login" render={() => <LogInForm />} />
         <Route exact path="/signup" render={() => <SignUpForm />} />
         <Route exact path="/tracks/upload" render={() => <TrackUploadForm />} />
