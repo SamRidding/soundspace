@@ -4,6 +4,7 @@ import UserPic from "../../components/UserPic";
 import { useCurrentUser } from "../../contexts/CurrentUserContexts";
 import { Link } from "react-router-dom";
 import ReactPlayer from "react-player";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Track = (props) => {
   const {
@@ -21,10 +22,27 @@ const Track = (props) => {
     comments_count,
     profile_img,
     like_id,
+    setTracks,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+
+  const handleLike = async () => {
+    try {
+      const { data } = await axiosRes.track("/likes/", { track: id });
+      setTracks((prevTracks) => ({
+        ...prevTracks,
+        results: prevTracks.results.map((track) => {
+          return track.id === id
+            ? { ...track, likes_count: track.likes_count + 1, like_id: data.id }
+            : track;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className={styles.pagecontain}>
