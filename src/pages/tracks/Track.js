@@ -22,6 +22,7 @@ const Track = (props) => {
     comments_count,
     profile_img,
     like_id,
+    trackPage,
     setTracks,
   } = props;
 
@@ -30,12 +31,28 @@ const Track = (props) => {
 
   const handleLike = async () => {
     try {
-      const { data } = await axiosRes.track("/likes/", { track: id });
+      const { data } = await axiosRes.post("/likes/", { track: id });
       setTracks((prevTracks) => ({
         ...prevTracks,
         results: prevTracks.results.map((track) => {
           return track.id === id
             ? { ...track, likes_count: track.likes_count + 1, like_id: data.id }
+            : track;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleUnlike = async () => {
+    try {
+      await axiosRes.delete(`/likes/${like_id}/`);
+      setTracks((prevTracks) => ({
+        ...prevTracks,
+        results: prevTracks.results.map((track) => {
+          return track.id === id
+            ? { ...track, likes_count: track.likes_count - 1, like_id: null }
             : track;
         }),
       }));
@@ -67,8 +84,8 @@ const Track = (props) => {
             </div>
           </Link>
         ) : like_id ? (
-          <Link style={{ textDecoration: "none" }}>
-            <div className={styles.ibtn}>
+          <Link style={{ textDecoration: "none" }} onClick={handleUnlike}>
+            <div className={styles.ibtn} style={{ color: "red" }}>
               <i class="fas fa-heart"></i>
               Like
             </div>
@@ -104,6 +121,8 @@ const Track = (props) => {
             Repost
           </div>
         </Link>
+        {likes_count}
+        {posted_at}
       </div>
 
       <div className={styles.midcontain}>
