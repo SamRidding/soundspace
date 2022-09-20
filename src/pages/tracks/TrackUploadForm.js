@@ -89,7 +89,7 @@ const TrackUploadForm = () => {
             <option value="published">PUBLISHED</option>
           </select>
           <div>
-            <button type="submit">Post Track</button>
+            <button type="submit" className={styles.postbtn}>Post Track</button>
           </div>
           {errors.non_field_errors?.map((message, idx) => (
             <div key={idx}>

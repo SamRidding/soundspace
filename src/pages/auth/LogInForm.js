@@ -64,7 +64,7 @@ const LogInForm = () => {
             <div key={idx}>{message}</div>
           ))}
           <div>
-            <button type="submit">Log In</button>
+            <button type="submit" className={styles.postbtn}>Log In</button>
           </div>
           {errors.non_field_errors?.map((message, idx) => (
             <div key={idx}>{message}</div>

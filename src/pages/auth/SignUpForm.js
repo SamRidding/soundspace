@@ -41,6 +41,7 @@ const SignUpForm = () => {
           <input
             type="text"
             placeholder="Enter Username"
+            className={styles.forminput}
             name="username"
             value={username}
             onChange={handleChange}
@@ -52,6 +53,7 @@ const SignUpForm = () => {
           <input
             type="password"
             placeholder="Enter Password"
+            className={styles.forminput}
             name="password1"
             value={password1}
             onChange={handleChange}
@@ -63,6 +65,7 @@ const SignUpForm = () => {
           <input
             type="password"
             placeholder="Confirm Password"
+            className={styles.forminput}
             name="password2"
             value={password2}
             onChange={handleChange}
@@ -72,7 +75,7 @@ const SignUpForm = () => {
             <div key={idx}>{message}</div>
           ))}
           <div>
-            <button type="submit">Sign Up</button>
+            <button type="submit" className={styles.postbtn}>Sign Up</button>
           </div>
           {errors.non_field_errors?.map((message, idx) => (
             <div key={idx}>
