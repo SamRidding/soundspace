@@ -24,7 +24,13 @@ function TracksPage({ filter = "" }) {
     };
 
     setHasLoaded(false);
-    fetchTracks();
+    const timer = setTimeout(() => {
+      fetchTracks();
+    }, 1000);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, [filter, query]);
 
   return (
