@@ -61,6 +61,69 @@ const Track = (props) => {
     }
   };
 
+  const trackIcons = (
+    <>
+      {like_id ? (
+        <span style={{ textDecoration: "none" }} onClick={handleUnlike}>
+          <div className={styles.ibtn} style={{ color: "red" }}>
+            <i className="fas fa-heart"></i>
+            Like
+          </div>
+        </span>
+      ) : currentUser ? (
+        <span style={{ textDecoration: "none" }} onClick={handleLike}>
+          <div className={styles.ibtn}>
+            <i className="fas fa-heart"></i>
+            Like
+          </div>
+        </span>
+      ) : (
+        <span style={{ textDecoration: "none" }} title="Log in to like tracks">
+          <div className={styles.ibtn}>
+            <i className="fas fa-heart"></i>
+            Like
+          </div>
+        </span>
+      )}
+
+      <span style={{ textDecoration: "none" }}>
+        <div className={styles.ibtn}>
+          <i class="fas fa-comment"></i>
+          Comment
+        </div>
+      </span>
+      <span style={{ textDecoration: "none" }}>
+        <div className={styles.ibtn}>
+          <i className="fas fa-retweet"></i>
+          Repost
+        </div>
+      </span>
+    </>
+  );
+
+  const trackOwnerIcons = (
+    <>
+      <span style={{ textDecoration: "none" }}>
+        <div className={styles.ibtn}>
+          <i class="fas fa-comment"></i>
+          Comment
+        </div>
+      </span>
+      <span style={{ textDecoration: "none" }}>
+        <div className={styles.ibtn}>
+          <i class="far fa-edit"></i>
+          Edit
+        </div>
+      </span>
+      <span style={{ textDecoration: "none" }}>
+        <div className={styles.ibtn}>
+          <i class="fas fa-trash"></i>
+          Delete
+        </div>
+      </span>
+    </>
+  );
+
   return (
     <div className={styles.pagecontain}>
       <div className={styles.topcontain}>
@@ -73,54 +136,7 @@ const Track = (props) => {
       </div>
 
       <div className={styles.interact}>
-        {is_owner ? (
-          <span
-            style={{ textDecoration: "none" }}
-            title="You can't like your own track"
-          >
-            <div className={styles.ibtn}>
-              <i className="fas fa-heart"></i>
-              Like
-            </div>
-          </span>
-        ) : like_id ? (
-          <span style={{ textDecoration: "none" }} onClick={handleUnlike}>
-            <div className={styles.ibtn} style={{ color: "red" }}>
-              <i className="fas fa-heart"></i>
-              Like
-            </div>
-          </span>
-        ) : currentUser ? (
-          <span style={{ textDecoration: "none" }} onClick={handleLike}>
-            <div className={styles.ibtn}>
-              <i className="fas fa-heart"></i>
-              Like
-            </div>
-          </span>
-        ) : (
-          <span
-            style={{ textDecoration: "none" }}
-            title="Log in to like tracks"
-          >
-            <div className={styles.ibtn}>
-              <i className="fas fa-heart"></i>
-              Like
-            </div>
-          </span>
-        )}
-
-        <span style={{ textDecoration: "none" }}>
-          <div className={styles.ibtn}>
-            <i class="fas fa-comment"></i>
-            Comment
-          </div>
-        </span>
-        <span style={{ textDecoration: "none" }}>
-          <div className={styles.ibtn}>
-            <i className="fas fa-retweet"></i>
-            Repost
-          </div>
-        </span>
+        {is_owner ? trackOwnerIcons : trackIcons}
         {likes_count}
         {posted_at}
       </div>
