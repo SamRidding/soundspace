@@ -25,7 +25,7 @@ function TracksPage({ filter = "" }) {
 
   return (
     <div>
-      <div className={styles.wrap}>
+      <form className={styles.wrap}>
         <div className={styles.search}>
           <input
             type="text"
@@ -36,7 +36,7 @@ function TracksPage({ filter = "" }) {
             <i className="fa fa-search"></i>
           </button>
         </div>
-      </div>
+      </form>
       {hasLoaded ? (
         <>
           {tracks.results.length ? (
