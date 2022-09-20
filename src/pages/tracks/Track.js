@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../../styles/Track.module.css";
 import UserPic from "../../components/UserPic";
 import { useCurrentUser } from "../../contexts/CurrentUserContexts";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import ReactPlayer from "react-player";
 import { axiosRes } from "../../api/axiosDefaults";
 
@@ -29,6 +29,11 @@ const Track = (props) => {
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+  const history = useHistory();
+
+  const handleEdit = () => {
+    history.push(`/tracks/${id}/edit`);
+  };
 
   const handleLike = async () => {
     try {
@@ -172,7 +177,7 @@ const Track = (props) => {
           Comment
         </div>
       </span>
-      <span style={{ textDecoration: "none" }}>
+      <span style={{ textDecoration: "none" }} onClick={handleEdit}>
         <div className={styles.ibtn}>
           <i class="fas fa-edit"></i>
           Edit
