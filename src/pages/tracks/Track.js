@@ -174,7 +174,7 @@ const Track = (props) => {
       </span>
       <span style={{ textDecoration: "none" }}>
         <div className={styles.ibtn}>
-          <i class="far fa-edit"></i>
+          <i class="fas fa-edit"></i>
           Edit
         </div>
       </span>
