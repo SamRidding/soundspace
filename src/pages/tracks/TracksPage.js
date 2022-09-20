@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { axiosReq } from "../../api/axiosDefaults";
+import Track from "./Track";
+import Loading from "../../components/Loading";
 
 function TracksPage({ filter = "" }) {
   const [tracks, setTracks] = useState({ results: [] });
@@ -20,7 +22,27 @@ function TracksPage({ filter = "" }) {
     fetchTracks();
   }, [filter]);
 
-  return <div>Track Page</div>;
+  return(
+    <div>
+      {hasLoaded ? (
+          <>
+            {tracks.results.length ? (
+              tracks.results.map((track) => (
+                <Track key={track.id} {...track} setTracks={setTracks} />
+              ))
+            ) : (
+              <div>
+                No results.
+              </div>
+            )}
+          </>
+        ) : (
+          <div>
+            <Loading />
+          </div>
+        )}
+    </div>
+  )
 }
 
 export default TracksPage;
