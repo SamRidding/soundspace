@@ -74,7 +74,7 @@ const Track = (props) => {
 
       <div className={styles.interact}>
         {is_owner ? (
-          <Link
+          <span
             style={{ textDecoration: "none" }}
             title="You can't like your own track"
           >
@@ -82,23 +82,23 @@ const Track = (props) => {
               <i className="fas fa-heart"></i>
               Like
             </div>
-          </Link>
+          </span>
         ) : like_id ? (
-          <Link style={{ textDecoration: "none" }} onClick={handleUnlike}>
+          <span style={{ textDecoration: "none" }} onClick={handleUnlike}>
             <div className={styles.ibtn} style={{ color: "red" }}>
               <i className="fas fa-heart"></i>
               Like
             </div>
-          </Link>
+          </span>
         ) : currentUser ? (
-          <Link style={{ textDecoration: "none" }} onClick={handleLike}>
+          <span style={{ textDecoration: "none" }} onClick={handleLike}>
             <div className={styles.ibtn}>
               <i className="fas fa-heart"></i>
               Like
             </div>
-          </Link>
+          </span>
         ) : (
-          <Link
+          <span
             style={{ textDecoration: "none" }}
             title="Log in to like tracks"
           >
@@ -106,21 +106,21 @@ const Track = (props) => {
               <i className="fas fa-heart"></i>
               Like
             </div>
-          </Link>
+          </span>
         )}
 
-        <Link style={{ textDecoration: "none" }}>
+        <span style={{ textDecoration: "none" }}>
           <div className={styles.ibtn}>
             <i class="fas fa-comment"></i>
             Comment
           </div>
-        </Link>
-        <Link style={{ textDecoration: "none" }}>
+        </span>
+        <span style={{ textDecoration: "none" }}>
           <div className={styles.ibtn}>
             <i className="fas fa-retweet"></i>
             Repost
           </div>
-        </Link>
+        </span>
         {likes_count}
         {posted_at}
       </div>
