@@ -2,18 +2,20 @@ import React, { useEffect, useState } from "react";
 import { axiosReq } from "../../api/axiosDefaults";
 import Track from "./Track";
 import Loading from "../../components/Loading";
-import styles from "../../styles/TracksPage.module.css"
+import styles from "../../styles/TracksPage.module.css";
 
 function TracksPage({ filter = "" }) {
   const [tracks, setTracks] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
 
-  const [query, setQuery] = useState("")
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     const fetchTracks = async () => {
       try {
-        const { data } = await axiosReq.get(`/tracks/?${filter}`);
+        const { data } = await axiosReq.get(
+          `/tracks/?${filter}search=${query}`
+        );
         setTracks(data);
         setHasLoaded(true);
       } catch (err) {
@@ -23,13 +25,18 @@ function TracksPage({ filter = "" }) {
 
     setHasLoaded(false);
     fetchTracks();
-  }, [filter]);
+  }, [filter, query]);
 
   return (
     <div>
-      <form className={styles.wrap}>
+      <form
+        className={styles.wrap}
+        onSubmit={(event) => event.preventDefault()}
+      >
         <div className={styles.search}>
           <input
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
             type="text"
             className={styles.searchTerm}
             placeholder="Search tracks"
