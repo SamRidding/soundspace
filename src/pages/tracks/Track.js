@@ -61,6 +61,20 @@ const Track = (props) => {
     }
   };
 
+  const handleRepost = async () => {
+    try {
+      const { data } = await axiosRes.post("/reposts/", { track: id });
+      setTracks((prevTracks) => ({
+        ...prevTracks,
+        results: prevTracks.results.map((track) => {
+          return track.id === id ? { ...track, repost_id: data.id } : track;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const trackIcons = (
     <>
       {like_id ? (
