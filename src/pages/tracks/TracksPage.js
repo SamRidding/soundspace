@@ -8,6 +8,8 @@ function TracksPage({ filter = "" }) {
   const [tracks, setTracks] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
 
+  const [query, setQuery] = useState("")
+
   useEffect(() => {
     const fetchTracks = async () => {
       try {
