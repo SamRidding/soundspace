@@ -79,21 +79,21 @@ const Track = (props) => {
             title="You can't like your own track"
           >
             <div className={styles.ibtn}>
-              <i class="fas fa-heart"></i>
+              <i className="fas fa-heart"></i>
               Like
             </div>
           </Link>
         ) : like_id ? (
           <Link style={{ textDecoration: "none" }} onClick={handleUnlike}>
             <div className={styles.ibtn} style={{ color: "red" }}>
-              <i class="fas fa-heart"></i>
+              <i className="fas fa-heart"></i>
               Like
             </div>
           </Link>
         ) : currentUser ? (
           <Link style={{ textDecoration: "none" }} onClick={handleLike}>
             <div className={styles.ibtn}>
-              <i class="fas fa-heart"></i>
+              <i className="fas fa-heart"></i>
               Like
             </div>
           </Link>
@@ -103,7 +103,7 @@ const Track = (props) => {
             title="Log in to like tracks"
           >
             <div className={styles.ibtn}>
-              <i class="fas fa-heart"></i>
+              <i className="fas fa-heart"></i>
               Like
             </div>
           </Link>
@@ -117,7 +117,7 @@ const Track = (props) => {
         </Link>
         <Link style={{ textDecoration: "none" }}>
           <div className={styles.ibtn}>
-            <i class="fas fa-retweet"></i>
+            <i className="fas fa-retweet"></i>
             Repost
           </div>
         </Link>
