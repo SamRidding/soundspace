@@ -76,6 +76,22 @@ const Track = (props) => {
     }
   };
 
+  const removeRepost = async () => {
+    try {
+      await axiosRes.delete(`/reposts/${repost_id}/`);
+      setTracks((prevTracks) => ({
+        ...prevTracks,
+        results: prevTracks.results.map((track) => {
+          return track.id === id
+            ? { ...track, repost_id: null }
+            : track;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const trackIcons = (
     <>
       {like_id ? (
@@ -121,7 +137,7 @@ const Track = (props) => {
       )}
 
       {repost_id ? (
-        <span style={{ textDecoration: "none" }}>
+        <span style={{ textDecoration: "none" }} onClick={removeRepost}>
           <div className={styles.ibtn} style={{ color: "red" }}>
             <i className="fas fa-retweet"></i>
             Repost
