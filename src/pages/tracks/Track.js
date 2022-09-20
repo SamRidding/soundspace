@@ -35,6 +35,15 @@ const Track = (props) => {
     history.push(`/tracks/${id}/edit`);
   };
 
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/tracks/${id}/`);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { track: id });
@@ -183,7 +192,7 @@ const Track = (props) => {
           Edit
         </div>
       </span>
-      <span style={{ textDecoration: "none" }}>
+      <span style={{ textDecoration: "none" }} onClick={handleDelete}>
         <div className={styles.ibtn}>
           <i class="fas fa-trash"></i>
           Delete
