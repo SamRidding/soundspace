@@ -24,6 +24,7 @@ const Track = (props) => {
     like_id,
     trackPage,
     setTracks,
+    repost_id,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -100,18 +101,50 @@ const Track = (props) => {
         </span>
       )}
 
-      <span style={{ textDecoration: "none" }}>
-        <div className={styles.ibtn}>
-          <i class="fas fa-comment"></i>
-          Comment
-        </div>
-      </span>
-      <span style={{ textDecoration: "none" }}>
-        <div className={styles.ibtn}>
-          <i className="fas fa-retweet"></i>
-          Repost
-        </div>
-      </span>
+      {currentUser ? (
+        <span style={{ textDecoration: "none" }}>
+          <div className={styles.ibtn}>
+            <i class="fas fa-comment"></i>
+            Comment
+          </div>
+        </span>
+      ) : (
+        <span
+          style={{ textDecoration: "none" }}
+          title="Log in to comment on tracks"
+        >
+          <div className={styles.ibtn}>
+            <i class="fas fa-comment"></i>
+            Comment
+          </div>
+        </span>
+      )}
+
+      {repost_id ? (
+        <span style={{ textDecoration: "none" }}>
+          <div className={styles.ibtn} style={{ color: "red" }}>
+            <i className="fas fa-retweet"></i>
+            Repost
+          </div>
+        </span>
+      ) : currentUser ? (
+        <span style={{ textDecoration: "none" }} onClick={handleRepost}>
+          <div className={styles.ibtn}>
+            <i className="fas fa-retweet"></i>
+            Repost
+          </div>
+        </span>
+      ) : (
+        <span
+          style={{ textDecoration: "none" }}
+          title="Log in to repost tracks"
+        >
+          <div className={styles.ibtn}>
+            <i className="fas fa-retweet"></i>
+            Repost
+          </div>
+        </span>
+      )}
     </>
   );
 
