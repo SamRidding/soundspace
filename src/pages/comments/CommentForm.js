@@ -4,6 +4,10 @@ function CommentForm(props) {
   const { post, setPost, setComments, profileImage, profile_id } = props;
   const [content, setContent] = useState("");
 
+  const handleChange = (event) => {
+    setContent(event.target.value);
+  };
+
   return (
     <div>
       <form>
@@ -13,6 +17,7 @@ function CommentForm(props) {
             placeholder="Enter a comment"
             name="comment"
             value={content}
+            onChange={handleChange}
           ></input>
         </div>
         <div>
