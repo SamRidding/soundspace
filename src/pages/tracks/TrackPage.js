@@ -51,7 +51,12 @@ const TrackPage = () => {
         ) : null}
         {comments.results.length ? (
           comments.results.map((comment) => (
-            <Comment key={comment.id} {...comment} />
+            <Comment
+              key={comment.id}
+              {...comment}
+              setTrack={setTrack}
+              setComments={setComments}
+            />
           ))
         ) : currentUser ? (
           <span>Add a comment</span>
