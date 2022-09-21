@@ -24,7 +24,7 @@ const TrackPage = () => {
           axiosReq.get(`/comments/?track=${id}`),
         ]);
         setTrack({ results: [track] });
-        setComments(track);
+        setComments(comments);
       } catch (err) {
         console.log(err);
       }
@@ -48,6 +48,15 @@ const TrackPage = () => {
         ) : comments.results.length ? (
           "Comments"
         ) : null}
+        {comments.results.length ? (
+          comments.results.map(comment => (
+            <p>{comment.content}</p>
+          ))
+        ) : currentUser ? (
+          <span>Add a comment</span>
+        ) : (
+          <span>Log in to post the first comment</span>
+        )}
       </div>
     </div>
   );
