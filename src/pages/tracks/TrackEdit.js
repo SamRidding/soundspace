@@ -1,5 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import {
+  useHistory,
+  useParams,
+} from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import styles from "../../styles/TrackEdit.module.css";
 
@@ -25,7 +28,9 @@ const TrackEdit = () => {
         const { data } = await axiosReq.get(`/tracks/${id}/`);
         const { title, audio, image, content, status, is_owner } = data;
 
-        is_owner ? setTrackData({ title, audio, image, content, status }) : history.push("/");
+        is_owner
+          ? setTrackData({ title, audio, image, content, status })
+          : history.push("/");
       } catch (err) {
         console.log(err);
       }
@@ -47,13 +52,15 @@ const TrackEdit = () => {
 
     formData.append("title", title);
     formData.append("audio", audio);
-    formData.append("image", imageInput.current.files[0]);
+    if (imageInput?.current?.files[0]) {
+      formData.append("image", imageInput.current.files[0]);
+    }
     formData.append("content", content);
     formData.append("status", status);
 
     try {
-      const { data } = await axiosReq.post("/tracks/", formData);
-      history.push(`/tracks/${data.id}`);
+      await axiosReq.put(`/tracks/${id}/`, formData);
+      history.push(`/tracks/${id}`);
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
@@ -111,7 +118,7 @@ const TrackEdit = () => {
           </select>
           <div>
             <button type="submit" className={styles.postbtn}>
-              Post Track
+              Save
             </button>
           </div>
           {errors.non_field_errors?.map((message, idx) => (
