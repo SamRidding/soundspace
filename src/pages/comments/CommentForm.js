@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useState } from "react";
 
-const CommentForm = () => {
+function CommentForm(props) {
+  const { post, setPost, setComments, profileImage, profile_id } = props;
+  const [content, setContent] = useState("");
+
   return (
-    <div>CommentForm</div>
-  )
+    <div>
+      <form>
+        <div>
+          <input
+            type="text"
+            placeholder="Enter a comment"
+            name="comment"
+            value={content}
+          ></input>
+        </div>
+        <div>
+          <button type="submit">Post</button>
+        </div>
+      </form>
+    </div>
+  );
 }
 
-export default CommentForm
+export default CommentForm;
