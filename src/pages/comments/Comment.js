@@ -8,9 +8,9 @@ const Comment = (props) => {
   return (
     <div>
       <div>
-        <link to={`/profiles/${profile_id}`}>
+        <Link to={`/profiles/${profile_id}`}>
           <UserPic src={profile_img} />
-        </link>
+        </Link>
         <div>
           <span>{owner}</span>
           <p>{content}</p>

@@ -7,6 +7,7 @@ import Track from "./Track";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContexts";
 import CommentForm from "../comments/CommentForm";
+import Comment from "../comments/Comment";
 
 const TrackPage = () => {
   const { id } = useParams();
@@ -49,8 +50,8 @@ const TrackPage = () => {
           "Comments"
         ) : null}
         {comments.results.length ? (
-          comments.results.map(comment => (
-            <p>{comment.content}</p>
+          comments.results.map((comment) => (
+            <Comment key={comment.id} {...comment} />
           ))
         ) : currentUser ? (
           <span>Add a comment</span>
