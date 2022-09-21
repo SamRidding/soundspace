@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import styles from "../../styles/TrackEdit.module.css";
 
@@ -15,6 +15,7 @@ const TrackEdit = () => {
 
   const history = useHistory();
   const imageInput = useRef(null);
+  const { id } = useParams();
 
   const [errors, setErrors] = useState({});
 
