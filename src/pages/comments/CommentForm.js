@@ -1,16 +1,41 @@
 import React, { useState } from "react";
 
 function CommentForm(props) {
-  const { post, setPost, setComments, profileImage, profile_id } = props;
+  const { track, setTrack, setComments, profileImage, profile_id } = props;
   const [content, setContent] = useState("");
 
   const handleChange = (event) => {
     setContent(event.target.value);
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const { data } = await axiosRes.post("/comments/", {
+        content,
+        track,
+      });
+      setComments((prevComments) => ({
+        ...prevComments,
+        results: [data, ...prevComments.results],
+      }));
+      setTrack((prevTrack) => ({
+        results: [
+          {
+            ...prevTrack.results[0],
+            comments_count: prevTrack.results[0].comments_count + 1,
+          },
+        ],
+      }));
+      setContent("");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <input
             type="text"
