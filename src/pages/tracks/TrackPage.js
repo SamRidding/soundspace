@@ -19,11 +19,12 @@ const TrackPage = () => {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: track }] = await Promise.all([
+        const [{ data: track }, { data: comments }] = await Promise.all([
           axiosReq.get(`/tracks/${id}`),
+          axiosReq.get(`/comments/?track=${id}`),
         ]);
         setTrack({ results: [track] });
-        console.log(track);
+        setComments(track);
       } catch (err) {
         console.log(err);
       }
