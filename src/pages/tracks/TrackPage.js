@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import styles from "../../styles/TrackPage.module.css";
+// import styles from "../../styles/TrackPage.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router-dom";
 import Track from "./Track";
@@ -35,6 +35,19 @@ const TrackPage = () => {
   return (
     <div>
       <Track {...track.results[0]} setTracks={setTrack} TrackPage />
+      <div>
+        {currentUser ? (
+          <CommentForm
+            profile_id={currentUser.profile_id}
+            profileImage={profile_image}
+            track={id}
+            setTrack={setTrack}
+            setComments={setComments}
+          />
+        ) : comments.results.length ? (
+          "Comments"
+        ) : null}
+      </div>
     </div>
   );
 };
