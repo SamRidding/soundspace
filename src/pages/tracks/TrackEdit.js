@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import styles from "../../styles/TrackEdit.module.css";
@@ -18,6 +18,21 @@ const TrackEdit = () => {
   const { id } = useParams();
 
   const [errors, setErrors] = useState({});
+
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const { data } = await axiosReq.get(`/tracks/${id}/`);
+        const { title, audio, image, content, status, is_owner } = data;
+
+        is_owner ? setTrackData({ title, audio, image, content, status }) : history.push("/");
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    handleMount();
+  }, [history, id]);
 
   const handleChange = (event) => {
     setTrackData({
