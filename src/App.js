@@ -7,6 +7,7 @@ import LogInForm from "./pages/auth/LogInForm";
 import TrackUploadForm from "./pages/tracks/TrackUploadForm";
 import TrackPage from "./pages/tracks/TrackPage";
 import TracksPage from "./pages/tracks/TracksPage";
+import TrackEdit from "./pages/tracks/TrackEdit";
 import { useCurrentUser } from "./contexts/CurrentUserContexts";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route exact path="/signup" render={() => <SignUpForm />} />
         <Route exact path="/tracks/upload" render={() => <TrackUploadForm />} />
         <Route exact path="/tracks/:id" render={() => <TrackPage />} />
+        <Route exact path="/tracks/:id/edit" render={() => <TrackEdit />} />
       </Switch>
     </div>
   );
