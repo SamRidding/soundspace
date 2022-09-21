@@ -5,12 +5,16 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router-dom";
 import Track from "./Track";
 
-
-
+import { useCurrentUser } from "../../contexts/CurrentUserContexts";
+import CommentForm from "../comments/CommentForm";
 
 const TrackPage = () => {
   const { id } = useParams();
   const [track, setTrack] = useState({ results: [] });
+
+  const currentUser = useCurrentUser();
+  const profile_image = currentUser?.profile_image;
+  const [comments, setComments] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
@@ -30,7 +34,7 @@ const TrackPage = () => {
 
   return (
     <div>
-        <Track {...track.results[0]} setTracks={setTrack} TrackPage />
+      <Track {...track.results[0]} setTracks={setTrack} TrackPage />
     </div>
   );
 };
