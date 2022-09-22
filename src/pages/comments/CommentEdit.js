@@ -35,10 +35,14 @@ function CommentEdit(props) {
 
   return (
     <div>
-      <form>
-        <input type="text"></input>
-        <button type="submit">Save</button>
-        <button type="button">Cancel</button>
+      <form onSubmit={handleSubmit}>
+        <input type="text" value={formContent} onChange={handleChange}></input>
+        <button type="submit" disabled={!content.trim()}>
+          Save
+        </button>
+        <button type="button" onClick={() => setShowEditForm(false)}>
+          Cancel
+        </button>
       </form>
     </div>
   );
