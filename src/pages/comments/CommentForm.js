@@ -36,17 +36,17 @@ function CommentForm(props) {
   };
 
   return (
-    <div className={styles.CFContain}>
+    <div className={styles.CFcontain}>
       <form onSubmit={handleSubmit} className={styles.CF}>
           <input
             type="text"
             placeholder="Enter a comment"
             name="comment"
-            className={styles.CFInput}
+            className={styles.CFinput}
             value={content}
             onChange={handleChange}
           ></input>
-          <button type="submit">Post</button>
+          <button type="submit" className={styles.CFbtn}>Post</button>
       </form>
     </div>
   );
