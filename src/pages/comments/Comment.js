@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import UserPic from "../../components/UserPic";
 import { useCurrentUser } from "../../contexts/CurrentUserContexts";
+import styles from "../../styles/Comment.module.css"
 
 const Comment = (props) => {
   const {
