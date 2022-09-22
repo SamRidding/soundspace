@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
+
 import UserPic from "../../components/UserPic";
 import { useCurrentUser } from "../../contexts/CurrentUserContexts";
+import CommentEdit from "./CommentEdit";
+
 import styles from "../../styles/Comment.module.css";
 
 const Comment = (props) => {
@@ -17,6 +20,7 @@ const Comment = (props) => {
     setComments,
   } = props;
 
+  const [showEditForm, setShowEditForm] = useState(false);
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
