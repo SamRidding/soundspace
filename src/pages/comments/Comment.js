@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import UserPic from "../../components/UserPic";
 import { useCurrentUser } from "../../contexts/CurrentUserContexts";
-import styles from "../../styles/Comment.module.css"
+import styles from "../../styles/Comment.module.css";
 
 const Comment = (props) => {
   const {
@@ -40,29 +40,33 @@ const Comment = (props) => {
   };
 
   return (
-    <div>
-      <div>
-        <Link to={`/profiles/${profile_id}`}>
-          <UserPic src={profile_img} />
-        </Link>
-        <div>
-          <span>{owner}</span>
-          <p>{content}</p>
+    <div className={styles.CommentContain}>
+      <div className={styles.CommentFlex}>
+        <div className={styles.CommentLeft}>
+          <Link to={`/profiles/${profile_id}`} className={styles.ProfileImg}>
+            <UserPic src={profile_img} />
+          </Link>
+          <div>
+            <span>{owner}</span>
+            <p className={styles.CommentContent}>{content}</p>
+          </div>
+        </div>
+        <div className={styles.CommentRight}>
+          <div>{posted_at}</div>
+          {is_owner ? (
+            <div>
+              <span>
+                <i class="fas fa-edit"></i>
+              </span>
+              <span onClick={handleDelete}>
+                <i class="fas fa-trash"></i>
+              </span>
+            </div>
+          ) : (
+            <div></div>
+          )}
         </div>
       </div>
-      <div>{posted_at}</div>
-      {is_owner ? (
-        <div>
-          <span>
-            <i class="fas fa-edit"></i>
-          </span>
-          <span onClick={handleDelete}>
-            <i class="fas fa-trash"></i>
-          </span>
-        </div>
-      ) : (
-        <div></div>
-      )}
     </div>
   );
 };

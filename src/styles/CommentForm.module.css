@@ -1,6 +1,7 @@
 .CFcontain {
     width: 90%;
     margin: 0 auto;
+    background-color: white;
 }
 
 .CF {
@@ -8,6 +9,7 @@
     background-color: none;
     display: flex;
     justify-content: center;
+    margin: 0 1rem
 }
 
 .CFinput {
