@@ -4,12 +4,12 @@
     justify-content: center;
 }
 
-form {
+/* form {
     width: 50%;
     background-color: #259C86;
     border-radius: 5px;
     font-family: 'Titillium Web', sans-serif;
-}
+} */
 
 .container {
     display: flex;

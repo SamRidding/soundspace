@@ -1,0 +1,15 @@
+.CFContain {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.CF {
+    width: 80%;
+    background-color: none;
+    display: flex;
+    justify-content: center;
+}
+
+.CFInput {
+    width: 100%;
+}

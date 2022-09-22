@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { axiosRes } from "../../api/axiosDefaults";
+import styles from "../../styles/CommentForm.module.css"
 
 function CommentForm(props) {
   const { track, setTrack, setComments, profileImage, profile_id } = props;
@@ -35,20 +36,17 @@ function CommentForm(props) {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div className={styles.CFContain}>
+      <form onSubmit={handleSubmit} className={styles.CF}>
           <input
             type="text"
             placeholder="Enter a comment"
             name="comment"
+            className={styles.CFInput}
             value={content}
             onChange={handleChange}
           ></input>
-        </div>
-        <div>
           <button type="submit">Post</button>
-        </div>
       </form>
     </div>
   );
