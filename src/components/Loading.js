@@ -1,13 +1,10 @@
 import React from "react";
-import styles from "../styles/Loading.module.css"
+import { PulseLoader } from "react-spinners";
 
 const Loading = () => {
   return (
-    <div className={styles.ldsring}>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+    <div >
+      <PulseLoader color="#146C78" size={10}/>
     </div>
   );
 };
