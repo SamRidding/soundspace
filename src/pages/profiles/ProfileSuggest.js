@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const ProfileSuggest = () => {
   const [profileData, setProfileData] = useState({
@@ -6,6 +6,21 @@ const ProfileSuggest = () => {
   });
   const { profileSuggest } = profileData;
 
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const { data } = await axiosReq.get("/profiles/");
+        setProfileData((prevState) => ({
+          ...prevState,
+          profileSuggest: data,
+        }));
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    handleMount();
+  }, []);
 
   return (
     <div>
