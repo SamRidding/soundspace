@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useCurrentUser } from "../../contexts/CurrentUserContexts";
 
 const ProfileSuggest = () => {
   const [profileData, setProfileData] = useState({
     profileSuggest: { results: [] },
   });
   const { profileSuggest } = profileData;
+  const currentUser = useCurrentUser();
 
   useEffect(() => {
     const handleMount = async () => {
