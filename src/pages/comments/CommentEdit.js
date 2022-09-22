@@ -1,7 +1,8 @@
 import React from "react";
 
-const CommentEdit(props) {
-
+function CommentEdit(props) {
+    const { id, content, setShowEditForm, setComments } = props;
+    
 }
 
 export default CommentEdit
