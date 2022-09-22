@@ -4,6 +4,10 @@ function CommentEdit(props) {
   const { id, content, setShowEditForm, setComments } = props;
   const [formContent, setFormContent] = useState(content);
 
+  const handleChange = (event) => {
+    setFormContent(event.target.value);
+  };
+
   return (
     <div>
       <form>
