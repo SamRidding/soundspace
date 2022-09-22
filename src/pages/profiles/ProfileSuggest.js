@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContexts";
+import Loading from "../../components/Loading";
 
 const ProfileSuggest = () => {
   const [profileData, setProfileData] = useState({
@@ -22,11 +24,20 @@ const ProfileSuggest = () => {
     };
 
     handleMount();
-  }, []);
+  }, [currentUser]);
 
   return (
     <div>
-      <p>Users to follow</p>
+      {profileSuggest.results.length ? (
+        <>
+          <p>Users to follow</p>
+          {profileSuggest.results.map((profile) => (
+            <p key={profile.id}>{profile.owner}</p>
+          ))}
+        </>
+      ) : (
+        <Loading />
+      )}
     </div>
   );
 };
