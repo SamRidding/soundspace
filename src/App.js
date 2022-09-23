@@ -9,6 +9,7 @@ import TrackPage from "./pages/tracks/TrackPage";
 import TracksPage from "./pages/tracks/TracksPage";
 import TrackEdit from "./pages/tracks/TrackEdit";
 import { useCurrentUser } from "./contexts/CurrentUserContexts";
+import ProfilePage from "./pages/profiles/ProfilePage";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -32,6 +33,7 @@ function App() {
         <Route exact path="/tracks/upload" render={() => <TrackUploadForm />} />
         <Route exact path="/tracks/:id" render={() => <TrackPage />} />
         <Route exact path="/tracks/:id/edit" render={() => <TrackEdit />} />
+        <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
       </Switch>
     </div>
   );
