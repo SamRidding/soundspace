@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import { useCurrentUser } from "../../contexts/CurrentUserContexts";
 import styles from "../../styles/ProfilePage.module.css";
 
 function ProfilePage() {
+  const [hasLoaded, setHasLoaded] = useState(false);
+  const currentUser = useCurrentUser();
+
   return (
     <div className={styles.PPcontain}>
       <div className={styles.PPflex}>
