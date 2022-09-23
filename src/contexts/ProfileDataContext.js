@@ -8,7 +8,7 @@ export const SetProfileDataContext = createContext();
 export const useProfileData = () => useContext(ProfileDataContext);
 export const useSetProfileData = () => useContext(SetProfileDataContext);
 
-const ProfileDataContext = ({ children }) => {
+export const ProfileDataProvider = ({ children }) => {
   const [profileData, setProfileData] = useState({
     pageProfile: { results: [] },
     profileSuggest: { results: [] },
@@ -40,4 +40,4 @@ const ProfileDataContext = ({ children }) => {
   );
 };
 
-export default ProfileDataContext;
+export default ProfileDataProvider;
