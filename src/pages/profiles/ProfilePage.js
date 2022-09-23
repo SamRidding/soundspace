@@ -30,6 +30,7 @@ function ProfilePage() {
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
+        setProfilePosts(profileTracks);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
