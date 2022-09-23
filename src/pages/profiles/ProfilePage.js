@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import { useCurrentUser } from "../../contexts/CurrentUserContexts";
 import styles from "../../styles/ProfilePage.module.css";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
+  const {id} = useParams();
 
   return (
     <div className={styles.PPcontain}>
