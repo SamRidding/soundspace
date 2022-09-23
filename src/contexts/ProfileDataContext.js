@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
+import { useCurrentUser } from "./CurrentUserContexts";
 
 export const ProfileDataContext = createContext();
 export const SetProfileDataContext = createContext();
@@ -11,7 +12,9 @@ const ProfileDataContext = ({ children }) => {
     pageProfile: { results: [] },
     profileSuggest: { results: [] },
   });
-  
+
+  const currentUser = useCurrentUser();
+
   return <div>ProfileDataContext</div>;
 };
 
