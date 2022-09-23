@@ -1,0 +1,15 @@
+.Pcontain {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2rem 1rem 0.2rem 0;
+}
+
+.Puser {
+    display: flex;
+    align-items: center;
+}
+
+.Pfollow {
+    display: flex;
+    align-items: center;
+}
