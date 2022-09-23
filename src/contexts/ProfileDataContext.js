@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { useCurrentUser } from "./CurrentUserContexts";
 
 export const ProfileDataContext = createContext();
@@ -14,6 +14,23 @@ const ProfileDataContext = ({ children }) => {
   });
 
   const currentUser = useCurrentUser();
+
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const { data } = await axiosReq.get(
+          "/profiles/"
+        );
+        setProfileData((prevState) => ({
+          ...prevState,
+          profileSuggest: data,
+        }));
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    handleMount();
+  }, [currentUser]);
 
   return <div>ProfileDataContext</div>;
 };
