@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContexts";
 import Loading from "../../components/Loading";
+import Profile from "./Profile";
 
 const ProfileSuggest = () => {
   const [profileData, setProfileData] = useState({
@@ -32,7 +33,7 @@ const ProfileSuggest = () => {
         <>
           <p>Users to follow</p>
           {profileSuggest.results.map((profile) => (
-            <p key={profile.id}>{profile.owner}</p>
+            <Profile key={profile.id} profile={profile} />
           ))}
         </>
       ) : (
