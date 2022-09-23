@@ -59,4 +59,6 @@
 
 .TPright {
   width: 25%;
+  border-left: 1px solid rgb(190, 190, 190);
+  padding-left: 1rem;
 }

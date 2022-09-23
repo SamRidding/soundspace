@@ -64,11 +64,11 @@ function TracksPage({ filter = "" }) {
                   <Track key={track.id} {...track} setTracks={setTracks} />
                 ))
               ) : (
-                <div className={styles.Results}>No results</div>
+                <div className={styles.Results}>No Results</div>
               )}
             </>
           ) : (
-            <div>
+            <div className={styles.Results}>
               <Loading />
             </div>
           )}
