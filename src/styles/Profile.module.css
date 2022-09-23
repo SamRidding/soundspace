@@ -1,15 +1,29 @@
 .Pcontain {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.2rem 1rem 0.2rem 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2rem 1rem 0.2rem 0;
+  font-family: "Titillium Web", sans-serif;
 }
 
 .Puser {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .Pfollow {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+}
+
+.FollowBtn {
+  font-family: "Titillium Web", sans-serif;
+  padding: 0 0.6rem;
+  border: 1px solid #146c78;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.FollowBtn:hover {
+    background-color: #146C78;
+    color: white;
 }
