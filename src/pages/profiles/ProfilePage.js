@@ -39,11 +39,23 @@ function ProfilePage() {
       <div className={styles.PPflex}>
         <div className={styles.PPleft}>
           <div className={styles.PPuser}>
-            <p>User img/name</p>
+            <img src={profile?.image} alt="test"></img>
+            <h2>{profile?.owner}</h2>
           </div>
           <div className={styles.PPtracks}>Tracks</div>
         </div>
-        <div className={styles.PPright}>User info, track likes.</div>
+        <div className={styles.PPright}>
+          <div className={styles.PPstats}>
+            <div className={styles.PPstat}>
+              <p className={styles.PPstatTitle}>Follwers</p>
+              <p className={styles.PPstatNo}>{profile?.followers_count}</p>
+            </div>
+            <div className={styles.PPstat}>
+              <p className={styles.PPstatTitle}>Following</p>
+              <p className={styles.PPstatNo}>{profile?.following_count}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
