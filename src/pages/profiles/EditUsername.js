@@ -52,7 +52,7 @@ const EditUsername = () => {
             className={styles.FormInput}
             type="text"
             placeholder="Enter new username"
-            onChange={handleChange}
+            onChange={(event) => setUsername(event.target.value)}
             name="username"
             value={username}
           />
