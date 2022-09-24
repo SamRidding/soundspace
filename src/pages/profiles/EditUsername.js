@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+
+import { axiosRes } from "../../api/axiosDefaults";
 import { useHistory, useParams } from "react-router-dom";
 import {
   useCurrentUser,
@@ -23,6 +25,23 @@ const EditUsername = () => {
       history.push("/");
     }
   }, [currentUser, history, id]);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await axiosRes.put("/dj-rest-auth/user/", {
+        username,
+      });
+      setCurrentUser((prevUser) => ({
+        ...prevUser,
+        username,
+      }));
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+      setErrors(err.response?.data);
+    }
+  };
 
   return (
     <div className={styles.FormContain}>
