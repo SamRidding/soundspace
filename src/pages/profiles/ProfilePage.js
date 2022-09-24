@@ -13,6 +13,7 @@ import styles from "../../styles/ProfilePage.module.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Track from "../tracks/Track";
 import { fetchMoreData } from "../../utils/utils";
+import { ProfileEditDropdown } from "../../components/Dropdown";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -52,6 +53,7 @@ function ProfilePage() {
           <div className={styles.PPuser}>
             <img src={profile?.image} alt="test"></img>
             <h2>{profile?.owner}</h2>
+            {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
           </div>
           <div className={styles.PPtracks}>
             {profileTracks.results.length ? (

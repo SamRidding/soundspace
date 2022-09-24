@@ -2,6 +2,7 @@ import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/Dropdown.module.css";
 
+
 const EditBtn = React.forwardRef(({ onClick }, ref) => (
   <i
     class="fas fa-edit"
@@ -12,3 +13,9 @@ const EditBtn = React.forwardRef(({ onClick }, ref) => (
     }}
   />
 ));
+
+export const ProfileEditDropdown = ({ id }) => {
+  return (
+    <div></div>
+  );
+};
