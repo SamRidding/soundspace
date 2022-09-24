@@ -4,32 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.NavLeft {
-    display: flex;
-    align-items: center;
-    padding: 0 1rem;
-}
-
-.LogoContain {
-    margin: 1rem;
-}
-
-.Logo {
-    color: #fafafa;
     font-family: 'Titillium Web', sans-serif;
-    font-size: 1.2rem;
-    text-decoration: none;
-}
-
-/* .Logo h1 {
-    margin: 0;
-    font-family: 'Titillium Web', sans-serif;
-} */
-
-.Navlinks {
-    margin: 1rem;
 }
 
 .NavLink {
@@ -37,11 +12,10 @@
     list-style: none;
     padding: 0 0.8rem 0 0.8rem;
     color: #fafafa;
-    font-family: 'Titillium Web', sans-serif;
     font-size: 1.2rem;
 }
 
-.Navlist {
-    list-style: none;
-    display: flex;
+.NavLink:hover {
+    color: #146C78;
+    text-decoration: none;
 }

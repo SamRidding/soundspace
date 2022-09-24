@@ -1,4 +1,5 @@
 import React from "react";
+import { Navbar, Nav } from "react-bootstrap";
 import styles from "../styles/NavBar.module.css";
 import { NavLink, useParams } from "react-router-dom";
 import {
@@ -7,10 +8,13 @@ import {
 } from "../contexts/CurrentUserContexts";
 import UserPic from "./UserPic";
 import axios from "axios";
+import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
+
+  const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
   const handleLogOut = async () => {
     try {
@@ -23,58 +27,54 @@ const NavBar = () => {
 
   const uploadLink = (
     <NavLink className={styles.NavLink} to="/tracks/upload">
-      <li>Upload</li>
+      Upload
     </NavLink>
   );
 
   const loggedInLinks = (
     <>
-      <div className={styles.Navlinks}>
-        <ul className={styles.Navlist}>
-          <NavLink
-            className={styles.NavLink}
-            to={`/profiles/${currentUser?.profile_id}`}
-          >
-            <li>
-              {currentUser?.username}
-              <UserPic src={currentUser?.profile_image} height={40} />
-            </li>
-          </NavLink>
-          {currentUser && uploadLink}
-          <NavLink className={styles.NavLink} to="/" onClick={handleLogOut}>
-            <li>Log Out</li>
-          </NavLink>
-        </ul>
-      </div>
+      <NavLink
+        className={styles.NavLink}
+        to={`/profiles/${currentUser?.profile_id}`}
+      >
+        {currentUser?.username}
+        <UserPic src={currentUser?.profile_image} height={40} />
+      </NavLink>
+      {currentUser && uploadLink}
+      <NavLink className={styles.NavLink} to="/" onClick={handleLogOut}>
+        Log Out
+      </NavLink>
     </>
   );
   const loggedOutLinks = (
     <>
-      <div className={styles.Navlinks}>
-        <ul className={styles.Navlist}>
-          <NavLink className={styles.NavLink} to="/signup">
-            <li>Sign Up</li>
-          </NavLink>
-          <NavLink className={styles.NavLink} to="/login">
-            <li>Log In</li>
-          </NavLink>
-        </ul>
-      </div>
+      <NavLink className={styles.NavLink} to="/signup">
+        Sign Up
+      </NavLink>
+      <NavLink className={styles.NavLink} to="/login">
+        Log In
+      </NavLink>
     </>
   );
 
   return (
-    <nav className={styles.Nav}>
-      <div className={styles.NavLeft}>
-        <div className="LogoContain">
-          <NavLink className={styles.Logo} to="/">
-            <h1>Logo</h1>
-          </NavLink>
-        </div>
-        {/* <div>{currentUser && uploadLink}</div> */}
-      </div>
-      {currentUser ? loggedInLinks : loggedOutLinks}
-    </nav>
+    <Navbar expanded={expanded} className={styles.Nav} expand="md" fixed="top">
+      <NavLink to="/">
+        <Navbar.Brand>
+          <h1>Logo</h1>
+        </Navbar.Brand>
+      </NavLink>
+      <Navbar.Toggle
+        ref={ref}
+        onClick={() => setExpanded(!expanded)}
+        aria-controls="basic-navbar-nav"
+      />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="ml-auto text-left">
+          {currentUser ? loggedInLinks : loggedOutLinks}
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 };
 
