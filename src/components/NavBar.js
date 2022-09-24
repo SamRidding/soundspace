@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../styles/NavBar.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import {
   useCurrentUser,
   useSetCurrentUser,
@@ -31,7 +31,10 @@ const NavBar = () => {
     <>
       <div className={styles.Navlinks}>
         <ul className={styles.Navlist}>
-          <NavLink className={styles.NavLink} to="/">
+          <NavLink
+            className={styles.NavLink}
+            to={`/profiles/${currentUser?.profile_id}`}
+          >
             <li>
               {currentUser?.username}
               <UserPic src={currentUser?.profile_image} height={40} />
