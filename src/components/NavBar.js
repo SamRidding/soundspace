@@ -58,7 +58,7 @@ const NavBar = () => {
   );
 
   return (
-    <Navbar expanded={expanded} className={styles.Nav} expand="md" fixed="top">
+    <Navbar expanded={expanded} className={styles.Nav} expand="md">
       <NavLink to="/">
         <Navbar.Brand>
           <h1>Logo</h1>

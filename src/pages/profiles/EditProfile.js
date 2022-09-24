@@ -24,46 +24,44 @@ const EditProfile = () => {
   });
   const { display_name, bio, profile_img } = profileData;
 
-  useEffect(() => {
-    const handleMount = async () => {
-      if (currentUser?.profile_id?.toString() === id) {
-        try {
-          const { data } = await axiosReq.get(`/profiles/${id}/`);
-          const { display_name, bio, profile_img } = data;
-          setProfileData({ display_name, bio, profile_img });
-        } catch (err) {
-          console.log(err);
-          history.push("/");
-        }
-      } else {
-        history.push("/");
-      }
-    };
+  // useEffect(() => {
+  //   const handleMount = async () => {
+  //     if (currentUser?.profile_id?.toString() === id) {
+  //       try {
+  //         const { data } = await axiosReq.get(`/profiles/${id}/`);
+  //         const { display_name, bio, profile_img } = data;
+  //         setProfileData({ display_name, bio, profile_img });
+  //       } catch (err) {
+  //         console.log(err);
+  //         history.push("/");
+  //       }
+  //     } else {
+  //       history.push("/");
+  //     }
+  //   };
 
-    handleMount();
-  }, [currentUser, history, id]);
+  //   handleMount();
+  // }, [currentUser, history, id]);
 
   return (
     <div>
       <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
+        <Form.Group>
+          <Form.Label>Display name</Form.Label>
+          <Form.Control type="text" placeholder="Enter new display name" />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+        <Form.Group>
+          <Form.Label>Bio</Form.Label>
+          <Form.Control as="textarea" placeholder="Update your bio" rows={5} />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
+
+        <Form.Group>
+          <Form.Label htmlFor="image-upload">Profile Image</Form.Label>
+          <Form.File id="image-upload" ref={imageFile} accept="image/*" />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
+
+        <Button type="submit">Save</Button>
       </Form>
     </div>
   );
