@@ -10,6 +10,8 @@ import {
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContexts";
 
+import styles from "../../styles/EditProfile.module.css"
+
 const EditUsername = () => {
   const [username, setUsername] = useState("");
   const [errors, setErrors] = useState({});
