@@ -1,0 +1,37 @@
+.FormContain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Form {
+    width: 50%;
+    margin-top: 10rem;
+    padding: 2rem;
+    background-color: #146C78;
+    border-radius: 5px;
+}
+
+.FormLabel {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.FormInput {
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 5px;
+    color: rgb(190, 190, 190);
+}
+
+.FormBtn {
+    background-color: white;
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 5px;
+    color: rgb(190, 190, 190);
+}
+
+.FormBtn:hover {
+    color: #146C78;
+    background-color: white;
+}

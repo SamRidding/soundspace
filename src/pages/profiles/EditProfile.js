@@ -9,6 +9,7 @@ import {
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContexts";
 import { axiosReq } from "../../api/axiosDefaults";
+import styles from "../../styles/EditProfile.module.css";
 
 const EditProfile = () => {
   const currentUser = useCurrentUser();
@@ -76,11 +77,12 @@ const EditProfile = () => {
   };
 
   return (
-    <div>
-      <Form onSubmit={handleSubmit}>
+    <div className={styles.FormContain}>
+      <Form onSubmit={handleSubmit} className={styles.Form}>
         <Form.Group>
-          <Form.Label>Display name</Form.Label>
+          <Form.Label className={styles.FormLabel}>Display name</Form.Label>
           <Form.Control
+            className={styles.FormInput}
             type="text"
             placeholder="Enter new display name"
             onChange={handleChange}
@@ -90,8 +92,9 @@ const EditProfile = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label>Bio</Form.Label>
+          <Form.Label className={styles.FormLabel}>Bio</Form.Label>
           <Form.Control
+            className={styles.FormInput}
             as="textarea"
             placeholder="Update your bio"
             value={bio}
@@ -102,7 +105,9 @@ const EditProfile = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor="image-upload">Profile Image</Form.Label>
+          <Form.Label htmlFor="image-upload" className={styles.FormLabel}>
+            Profile Image
+          </Form.Label>
           <Form.File
             id="image-upload"
             ref={imageFile}
@@ -118,7 +123,7 @@ const EditProfile = () => {
           />
         </Form.Group>
 
-        <Button type="submit">Save</Button>
+        <Button type="submit" className={styles.FormBtn}>Save</Button>
       </Form>
     </div>
   );
