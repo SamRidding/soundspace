@@ -10,7 +10,7 @@ import {
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContexts";
 
-import styles from "../../styles/EditProfile.module.css"
+import styles from "../../styles/FormPage.module.css"
 
 const EditUsername = () => {
   const [username, setUsername] = useState("");

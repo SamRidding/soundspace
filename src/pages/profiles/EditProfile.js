@@ -9,7 +9,7 @@ import {
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContexts";
 import { axiosReq } from "../../api/axiosDefaults";
-import styles from "../../styles/EditProfile.module.css";
+import styles from "../../styles/FormPage.module.css"
 
 const EditProfile = () => {
   const currentUser = useCurrentUser();
