@@ -16,7 +16,12 @@ const EditProfile = () => {
   const history = useHistory();
   const imageFile = useRef();
 
-  
+  const [profileData, setProfileData] = useState({
+    display_name: "",
+    bio: "",
+    profile_img: "",
+  });
+  const { display_name, bio, profile_img } = profileData;
 
   return (
     <div>
