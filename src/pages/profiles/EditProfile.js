@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { useHistory, useParams } from "react-router-dom";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../../contexts/CurrentUserContexts";
+
 const EditProfile = () => {
+  const currentUser = useSetCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
+  const { id } = useParams();
+  const history = useHistory();
+  const imageFile = useRef();
+
+  
+
   return (
     <div>
       <Form>
