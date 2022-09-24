@@ -10,6 +10,9 @@ import TracksPage from "./pages/tracks/TracksPage";
 import TrackEdit from "./pages/tracks/TrackEdit";
 import { useCurrentUser } from "./contexts/CurrentUserContexts";
 import ProfilePage from "./pages/profiles/ProfilePage";
+import EditPassword from "./pages/profiles/EditPassword";
+import EditProfile from "./pages/profiles/EditProfile";
+import EditUsername from "./pages/profiles/EditUsername";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -34,6 +37,17 @@ function App() {
         <Route exact path="/tracks/:id" render={() => <TrackPage />} />
         <Route exact path="/tracks/:id/edit" render={() => <TrackEdit />} />
         <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+        <Route exact path="/profiles/:id/edit" render={() => <EditProfile />} />
+        <Route
+          exact
+          path="/profiles/:id/edit/username"
+          render={() => <EditUsername />}
+        />
+        <Route
+          exact
+          path="/profiles/:id/edit/password"
+          render={() => <EditPassword />}
+        />
       </Switch>
     </div>
   );
