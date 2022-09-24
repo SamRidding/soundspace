@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import UserPic from "../../components/UserPic";
 import { useCurrentUser } from "../../contexts/CurrentUserContexts";
+import { useSetProfileData } from "../../contexts/ProfileDataContext";
 import styles from "../../styles/Profile.module.css";
 
 const Profile = (props) => {
@@ -10,6 +11,8 @@ const Profile = (props) => {
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+
+  const { handleFollow } = useSetProfileData();
 
   return (
     <div className={styles.Pcontain}>
@@ -27,7 +30,7 @@ const Profile = (props) => {
               unfollow
             </button>
           ) : (
-            <button className={styles.FollowBtn} onClick={() => {}}>
+            <button className={styles.FollowBtn} onClick={() => handleFollow(profile)}>
               follow
             </button>
           ))}
