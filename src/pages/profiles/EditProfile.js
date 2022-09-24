@@ -8,6 +8,7 @@ import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContexts";
+import { axiosReq } from "../../api/axiosDefaults";
 
 const EditProfile = () => {
   const currentUser = useSetCurrentUser();
@@ -22,6 +23,25 @@ const EditProfile = () => {
     profile_img: "",
   });
   const { display_name, bio, profile_img } = profileData;
+
+  useEffect(() => {
+    const handleMount = async () => {
+      if (currentUser?.profile_id?.toString() === id) {
+        try {
+          const { data } = await axiosReq.get(`/profiles/${id}/`);
+          const { display_name, bio, profile_img } = data;
+          setProfileData({ display_name, bio, profile_img });
+        } catch (err) {
+          console.log(err);
+          history.push("/");
+        }
+      } else {
+        history.push("/");
+      }
+    };
+
+    handleMount();
+  }, [currentUser, history, id]);
 
   return (
     <div>
