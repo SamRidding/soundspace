@@ -18,6 +18,28 @@ export const ProfileEditDropdown = ({ id }) => {
   const history = useHistory();
 
   return (
-    <div></div>
+    <Dropdown className={`ml-auto px-3`} drop="left">
+      <Dropdown.Toggle as={EditBtn} />
+      <Dropdown.Menu>
+        <Dropdown.Item
+          onClick={() => history.push(`/profiles/${id}/edit`)}
+          aria-label="edit-profile"
+        >
+          Edit Profile
+        </Dropdown.Item>
+        <Dropdown.Item
+          onClick={() => history.push(`/profiles/${id}/edit/username`)}
+          aria-label="edit-username"
+        >
+          Change Username
+        </Dropdown.Item>
+        <Dropdown.Item
+          onClick={() => history.push(`/profiles/${id}/edit/password`)}
+          aria-label="edit-password"
+        >
+          Change Password
+        </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
   );
 };
