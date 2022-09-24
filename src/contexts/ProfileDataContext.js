@@ -52,7 +52,7 @@ export const ProfileDataProvider = ({ children }) => {
             unfollowHelper(profile, clickedProfile)
           ),
         },
-        popularProfiles: {
+        profileSuggest: {
           ...prevState.profileSuggest,
           results: prevState.profileSuggest.results.map((profile) =>
             unfollowHelper(profile, clickedProfile)
@@ -81,7 +81,7 @@ export const ProfileDataProvider = ({ children }) => {
 
   return (
     <ProfileDataContext.Provider value={profileData}>
-      <SetProfileDataContext.Provider value={{ setProfileData, handleFollow }}>
+      <SetProfileDataContext.Provider value={{ setProfileData, handleFollow, handleUnfollow }}>
         {children}
       </SetProfileDataContext.Provider>
     </ProfileDataContext.Provider>
