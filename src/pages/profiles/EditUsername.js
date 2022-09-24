@@ -16,6 +16,14 @@ const EditUsername = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
+  useEffect(() => {
+    if (currentUser?.profile_id?.toString() === id) {
+      setUsername(currentUser.username);
+    } else {
+      history.push("/");
+    }
+  }, [currentUser, history, id]);
+
   return (
     <div className={styles.FormContain}>
       <Form onSubmit={handleSubmit} className={styles.Form}>
