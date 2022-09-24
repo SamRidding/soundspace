@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+
+import Loading from "../../components/Loading";
+
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContexts";
@@ -7,6 +10,9 @@ import {
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
 import styles from "../../styles/ProfilePage.module.css";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Track from "../tracks/Track";
+import { fetchMoreData } from "../../utils/utils";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -47,7 +53,25 @@ function ProfilePage() {
             <img src={profile?.image} alt="test"></img>
             <h2>{profile?.owner}</h2>
           </div>
-          <div className={styles.PPtracks}>Tracks</div>
+          <div className={styles.PPtracks}>
+            {profileTracks.results.length ? (
+              <InfiniteScroll
+                children={profileTracks.results.map((track) => (
+                  <Track
+                    key={track.id}
+                    {...track}
+                    setTracks={setProfileTracks}
+                  />
+                ))}
+                dataLength={profileTracks.results.length}
+                loader={<Loading />}
+                hasMore={!!profileTracks.next}
+                next={() => fetchMoreData(profileTracks, setProfileTracks)}
+              />
+            ) : (
+              <Loading />
+            )}
+          </div>
         </div>
         <div className={styles.PPright}>
           <div className={styles.PPstats}>
