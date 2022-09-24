@@ -1,7 +1,7 @@
 import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/Dropdown.module.css";
-
+import { useHistory } from "react-router-dom";
 
 const EditBtn = React.forwardRef(({ onClick }, ref) => (
   <i
@@ -15,6 +15,8 @@ const EditBtn = React.forwardRef(({ onClick }, ref) => (
 ));
 
 export const ProfileEditDropdown = ({ id }) => {
+  const history = useHistory();
+
   return (
     <div></div>
   );
