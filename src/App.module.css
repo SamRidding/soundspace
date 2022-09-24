@@ -1,9 +1,10 @@
-body {
+/* body {
     margin: 0;
     padding: 0;
-}
+} */
 
 .App {
     min-height: 100vh;
     background-color: #fafafa;
+    font-family: 'Titillium Web', sans-serif;
 }
