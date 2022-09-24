@@ -11,7 +11,7 @@ import {
 import { axiosReq } from "../../api/axiosDefaults";
 
 const EditProfile = () => {
-  const currentUser = useSetCurrentUser();
+  const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
   const { id } = useParams();
   const history = useHistory();
@@ -77,20 +77,45 @@ const EditProfile = () => {
 
   return (
     <div>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label>Display name</Form.Label>
-          <Form.Control type="text" placeholder="Enter new display name" />
+          <Form.Control
+            type="text"
+            placeholder="Enter new display name"
+            onChange={handleChange}
+            name="display_name"
+            value={display_name}
+          />
         </Form.Group>
 
         <Form.Group>
           <Form.Label>Bio</Form.Label>
-          <Form.Control as="textarea" placeholder="Update your bio" rows={5} />
+          <Form.Control
+            as="textarea"
+            placeholder="Update your bio"
+            value={bio}
+            onChange={handleChange}
+            name="bio"
+            rows={5}
+          />
         </Form.Group>
 
         <Form.Group>
           <Form.Label htmlFor="image-upload">Profile Image</Form.Label>
-          <Form.File id="image-upload" ref={imageFile} accept="image/*" />
+          <Form.File
+            id="image-upload"
+            ref={imageFile}
+            accept="image/*"
+            onChange={(e) => {
+              if (e.target.files.length) {
+                setProfileData({
+                  ...profileData,
+                  image: URL.createObjectURL(e.target.files[0]),
+                });
+              }
+            }}
+          />
         </Form.Group>
 
         <Button type="submit">Save</Button>
