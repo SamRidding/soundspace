@@ -24,24 +24,49 @@ const EditProfile = () => {
   });
   const { display_name, bio, profile_img } = profileData;
 
-  // useEffect(() => {
-  //   const handleMount = async () => {
-  //     if (currentUser?.profile_id?.toString() === id) {
-  //       try {
-  //         const { data } = await axiosReq.get(`/profiles/${id}/`);
-  //         const { display_name, bio, profile_img } = data;
-  //         setProfileData({ display_name, bio, profile_img });
-  //       } catch (err) {
-  //         console.log(err);
-  //         history.push("/");
-  //       }
-  //     } else {
-  //       history.push("/");
-  //     }
-  //   };
+  const [errors, setErrors] = useState({});
 
-  //   handleMount();
-  // }, [currentUser, history, id]);
+  useEffect(() => {
+    const handleMount = async () => {
+      if (currentUser?.profile_id?.toString() === id) {
+        try {
+          const { data } = await axiosReq.get(`/profiles/${id}/`);
+          const { display_name, bio, profile_img } = data;
+          setProfileData({ display_name, bio, profile_img });
+        } catch (err) {
+          console.log(err);
+          history.push("/");
+        }
+      } else {
+        history.push("/");
+      }
+    };
+
+    handleMount();
+  }, [currentUser, history, id]);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append("display_name", display_name);
+    formData.append("bio", bio);
+
+    if (imageFile?.current?.files[0]) {
+      formData.append("profile_img", imageFile?.current?.files[0]);
+    }
+
+    try {
+      const { data } = await axiosReq.put(`/profiles/${id}/`, formData);
+      setCurrentUser((currentUser) => ({
+        ...currentUser,
+        profile_image: data.profile_img,
+      }));
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+      setErrors(err.response?.data);
+    }
+  };
 
   return (
     <div>
