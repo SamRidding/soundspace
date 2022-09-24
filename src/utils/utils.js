@@ -26,3 +26,7 @@ export const followHelper = (profile, clickedProfile, following_id) => {
     ? { ...profile, following_count: profile.following_count + 1 }
     : profile;
 };
+
+export const unfollowHelper = () => {
+  return;
+}
