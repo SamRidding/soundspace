@@ -60,8 +60,25 @@ function ProfilePage() {
             </div>
             <div className={styles.PPusername}>
               <h2>{profile?.owner}</h2>
-              {profile?.is_owner && <ProfileEditDropdown id={profile?.id}/>}
+              {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
             </div>
+            {currentUser &&
+              !is_owner &&
+              (profile?.following_id ? (
+                <button
+                  className={styles.FollowBtn}
+                  onClick={() => handleUnfollow(profile)}
+                >
+                  unfollow
+                </button>
+              ) : (
+                <button
+                  className={styles.FollowBtn}
+                  onClick={() => handleFollow(profile)}
+                >
+                  follow
+                </button>
+              ))}
           </div>
           <div className={styles.PPtracks}>
             {profileTracks.results.length ? (
@@ -94,23 +111,6 @@ function ProfilePage() {
               <p className={styles.PPstatNo}>{profile?.following_count}</p>
             </div>
           </div>
-          {currentUser &&
-            !is_owner &&
-            (profile?.following_id ? (
-              <button
-                className={styles.FollowBtn}
-                onClick={() => handleUnfollow(profile)}
-              >
-                unfollow
-              </button>
-            ) : (
-              <button
-                className={styles.FollowBtn}
-                onClick={() => handleFollow(profile)}
-              >
-                follow
-              </button>
-            ))}
           <div className={styles.PPbio}>{profile?.bio}</div>
         </div>
       </div>
