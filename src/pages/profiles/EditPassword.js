@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 import styles from "../../styles/FormPage.module.css";
 import { useHistory, useParams } from "react-router-dom";
@@ -14,10 +15,10 @@ const EditPassword = () => {
   const currentUser = useCurrentUser();
 
   const [userData, setUserData] = useState({
-    new_pw1: "",
-    new_pw2: "",
+    new_password1: "",
+    new_password2: "",
   });
-  const { new_pw1, new_pw2 } = userData;
+  const { new_password1, new_password2 } = userData;
 
   const [errors, setErrors] = useState({});
 
@@ -53,12 +54,18 @@ const EditPassword = () => {
           <Form.Control
             className={styles.FormInput}
             placeholder="New password"
+            autocomplete="new-password"
             type="password"
-            value={new_pw1}
+            value={new_password1}
             onChange={handleChange}
-            name="new_pw1"
+            name="new_password1"
           />
         </Form.Group>
+        {errors?.new_password1?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
 
         <Form.Group>
           <Form.Label className={styles.FormLabel}>
@@ -67,12 +74,18 @@ const EditPassword = () => {
           <Form.Control
             className={styles.FormInput}
             placeholder="Confirm new password"
+            autocomplete="new-password"
             type="password"
-            value={new_pw2}
+            value={new_password2}
             onChange={handleChange}
-            name="new_pw2"
+            name="new_password2"
           />
         </Form.Group>
+        {errors?.new_password2?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
 
         <Button type="submit" className={styles.FormBtn}>
           Save
