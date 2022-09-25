@@ -108,7 +108,7 @@ const Track = (props) => {
 
   const trackIcons = (
     <>
-      {like_id ? (
+      {currentUser && like_id ? (
         <span style={{ textDecoration: "none" }} onClick={handleUnlike}>
           <div className={styles.ibtn} style={{ color: "red" }}>
             <i className="fas fa-heart"></i>
