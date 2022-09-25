@@ -17,7 +17,7 @@ const EditPassword = () => {
     new_pw1: "",
     new_pw2: "",
   });
-  const { new_pwd1, new_pw2 } = userData;
+  const { new_pw1, new_pw2 } = userData;
 
   const [errors, setErrors] = useState({});
 
@@ -47,17 +47,31 @@ const EditPassword = () => {
 
   return (
     <div className={styles.FormContain}>
-      <Form className={styles.Form}>
+      <Form className={styles.Form} onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label className={styles.FormLabel}>New Password</Form.Label>
-          <Form.Control className={styles.FormInput} type="text" />
+          <Form.Control
+            className={styles.FormInput}
+            placeholder="New password"
+            type="password"
+            value={new_pw1}
+            onChange={handleChange}
+            name="new_pw1"
+          />
         </Form.Group>
 
         <Form.Group>
           <Form.Label className={styles.FormLabel}>
             Confirm New Password
           </Form.Label>
-          <Form.Control className={styles.FormInput} type="text" />
+          <Form.Control
+            className={styles.FormInput}
+            placeholder="Confirm new password"
+            type="password"
+            value={new_pw2}
+            onChange={handleChange}
+            name="new_pw2"
+          />
         </Form.Group>
 
         <Button type="submit" className={styles.FormBtn}>
