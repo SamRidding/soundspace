@@ -99,7 +99,7 @@ function ProfilePage() {
                 follow
               </button>
             ))}
-          <div className={styles.PPbio}>{profile?.content}</div>
+          <div className={styles.PPbio}>{profile?.bio}</div>
         </div>
       </div>
     </div>

@@ -54,10 +54,9 @@
 }
 
 .PPstats {
-  /* border: 1px solid rgb(190, 190, 190); */
   display: flex;
   justify-content: space-evenly;
-  margin: 1rem;
+  margin: 1rem 0 0 0;
   padding: 1rem;
   color: rgb(190, 190, 190);
 }
@@ -72,11 +71,17 @@
 }
 
 .PPstat {
-  border-right: 1px solid rgb(190, 190, 190);
+  /* border-right: 1px solid rgb(190, 190, 190); */
   padding: 0 0.8rem;
 }
 
+.PPbio {
+  padding: 0.4rem 1rem;
+  margin: 0 1rem;
+  border-top: 1px solid rgb(190, 190, 190);
+}
+
 .FollowBtn:hover {
-  background-color: #146C78;
+  background-color: #146c78;
   color: white;
 }
