@@ -10,19 +10,9 @@ const Track = (props) => {
   const {
     id,
     owner,
-    // title,
+    title,
     audio,
-    // image,
-    content,
-    // status,
-    // edited_at,
-    profile_id,
-    posted_at,
-    likes_count,
-    // comments_count,
-    profile_img,
     like_id,
-    // trackPage,
     setTracks,
     repost_id,
   } = props;
@@ -96,9 +86,7 @@ const Track = (props) => {
       setTracks((prevTracks) => ({
         ...prevTracks,
         results: prevTracks.results.map((track) => {
-          return track.id === id
-            ? { ...track, repost_id: null }
-            : track;
+          return track.id === id ? { ...track, repost_id: null } : track;
         }),
       }));
     } catch (err) {
@@ -204,21 +192,19 @@ const Track = (props) => {
   return (
     <div className={styles.pagecontain}>
       <div className={styles.topcontain}>
+        <Link to={`/tracks/${id}`} className={styles.TrackTitle}>
+          <h2>{title}</h2>
+        </Link>
         <div className={styles.audio}>
           <ReactPlayer url={audio} width="100%" height="100%" />
         </div>
-        {/* <div>
-          <img src={image} alt={title} />
-        </div> */}
       </div>
 
       <div className={styles.interact}>
         {is_owner ? trackOwnerIcons : trackIcons}
-        {likes_count}
-        {posted_at}
       </div>
 
-      <div className={styles.midcontain}>
+      {/* <div className={styles.midcontain}>
         <div className={styles.UserInfo}>
           <Link
             to={`/profiles/${profile_id}`}
@@ -231,7 +217,7 @@ const Track = (props) => {
           </Link>
         </div>
         <div>{content}</div>
-      </div>
+      </div> */}
     </div>
   );
 };

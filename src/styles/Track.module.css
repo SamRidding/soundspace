@@ -8,6 +8,11 @@
     height: 20rem;
 }
 
+.TrackTitle {
+    text-decoration: none;
+    color: black;
+}
+
 .audio {
     height: 100%;
 }
@@ -15,7 +20,7 @@
 .interact {
     display: flex;
     padding: 1rem 0;
-    border-bottom: 1px solid rgb(190, 190, 190);
+    margin: 3rem 0;
 }
 
 .ibtn {
@@ -49,4 +54,9 @@
     border: 1px solid rgb(140, 140, 140);
     background-color: #146C78;
     color: white;
+}
+
+.TrackTitle:hover {
+    text-decoration: none;
+    color: #146C78;
 }
