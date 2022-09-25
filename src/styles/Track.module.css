@@ -28,6 +28,7 @@
     color: rgb(0, 0, 0);
     font-size: 0.8rem;
     padding: 0.2rem 1rem;
+    cursor: pointer;
 }
 
 .ibtn i {
@@ -46,4 +47,6 @@
 
 .ibtn:hover {
     border: 1px solid rgb(140, 140, 140);
+    background-color: #146C78;
+    color: white;
 }
