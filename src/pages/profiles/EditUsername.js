@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 import { axiosRes } from "../../api/axiosDefaults";
 import { useHistory, useParams } from "react-router-dom";
@@ -59,6 +60,11 @@ const EditUsername = () => {
             value={username}
           />
         </Form.Group>
+        {errors?.username?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
 
         <Button type="submit" className={styles.FormBtn}>
           Save
