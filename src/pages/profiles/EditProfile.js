@@ -1,15 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useHistory, useParams } from "react-router-dom";
 
-import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContexts";
 import { axiosReq } from "../../api/axiosDefaults";
-import styles from "../../styles/FormPage.module.css"
+import styles from "../../styles/FormPage.module.css";
 
 const EditProfile = () => {
   const currentUser = useCurrentUser();
@@ -90,6 +91,11 @@ const EditProfile = () => {
             value={display_name}
           />
         </Form.Group>
+        {errors?.display_name?.map((message, idx) => (
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+        ))}
 
         <Form.Group>
           <Form.Label className={styles.FormLabel}>Bio</Form.Label>
@@ -103,6 +109,11 @@ const EditProfile = () => {
             rows={5}
           />
         </Form.Group>
+        {errors?.bio?.map((message, idx) => (
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+        ))}
 
         <Form.Group>
           <Form.Label htmlFor="image-upload" className={styles.FormLabel}>
@@ -122,8 +133,15 @@ const EditProfile = () => {
             }}
           />
         </Form.Group>
+        {errors?.image?.map((message, idx) => (
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+        ))}
 
-        <Button type="submit" className={styles.FormBtn}>Save</Button>
+        <Button type="submit" className={styles.FormBtn}>
+          Save
+        </Button>
       </Form>
     </div>
   );
