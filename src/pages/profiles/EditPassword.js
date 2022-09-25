@@ -4,8 +4,16 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 import styles from "../../styles/FormPage.module.css"
+import { useHistory, useParams } from "react-router-dom";
+import { useCurrentUser } from "../../contexts/CurrentUserContexts";
 
 const EditPassword = () => {
+  const history = useHistory();
+  const {id} = useParams();
+  const currentUser = useCurrentUser();
+
+  
+
   return (
     <div className={styles.FormContain}>
       <Form className={styles.Form}>
