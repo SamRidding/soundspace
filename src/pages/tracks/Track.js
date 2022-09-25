@@ -7,15 +7,7 @@ import ReactPlayer from "react-player";
 import { axiosRes } from "../../api/axiosDefaults";
 
 const Track = (props) => {
-  const {
-    id,
-    owner,
-    title,
-    audio,
-    like_id,
-    setTracks,
-    repost_id,
-  } = props;
+  const { id, owner, title, audio, like_id, setTracks, repost_id } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
@@ -120,12 +112,14 @@ const Track = (props) => {
       )}
 
       {currentUser ? (
-        <span style={{ textDecoration: "none" }}>
-          <div className={styles.ibtn}>
-            <i class="fas fa-comment"></i>
-            Comment
-          </div>
-        </span>
+        <Link to={`/tracks/${id}`}>
+          <span style={{ textDecoration: "none" }}>
+            <div className={styles.ibtn}>
+              <i class="fas fa-comment"></i>
+              Comment
+            </div>
+          </span>
+        </Link>
       ) : (
         <span
           style={{ textDecoration: "none" }}
@@ -168,12 +162,14 @@ const Track = (props) => {
 
   const trackOwnerIcons = (
     <>
-      <span style={{ textDecoration: "none" }}>
-        <div className={styles.ibtn}>
-          <i class="fas fa-comment"></i>
-          Comment
-        </div>
-      </span>
+      <Link to={`/tracks/${id}`}>
+        <span style={{ textDecoration: "none" }}>
+          <div className={styles.ibtn}>
+            <i class="fas fa-comment"></i>
+            Comment
+          </div>
+        </span>
+      </Link>
       <span style={{ textDecoration: "none" }} onClick={handleEdit}>
         <div className={styles.ibtn}>
           <i class="fas fa-edit"></i>
