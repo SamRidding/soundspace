@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -24,6 +24,12 @@ const EditPassword = () => {
       [event.target.name]: event.target.value,
     });
   };
+
+  useEffect(() => {
+    if (currentUser?.profile_id?.toString() !== id) {
+      history.push("/");
+    }
+  }, [currentUser, history, id]);
 
   return (
     <div className={styles.FormContain}>
