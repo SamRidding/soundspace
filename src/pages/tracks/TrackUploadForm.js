@@ -1,7 +1,12 @@
 import React, { useRef, useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+
+import Alert from "react-bootstrap/Alert";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+
 import { axiosReq } from "../../api/axiosDefaults";
-import styles from "../../styles/TrackUploadForm.module.css";
+import styles from "../../styles/FormPage.module.css";
 
 const TrackUploadForm = () => {
   const [trackData, setTrackData] = useState({
@@ -26,14 +31,14 @@ const TrackUploadForm = () => {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const formData = new FormData();
 
-    formData.append('title', title);
-    formData.append('audio', audio);
-    formData.append('image', imageInput.current.files[0]);
-    formData.append('content', content);
-    formData.append('status', status);
+    formData.append("title", title);
+    formData.append("audio", audio);
+    formData.append("image", imageInput.current.files[0]);
+    formData.append("content", content);
+    formData.append("status", status);
 
     try {
       const { data } = await axiosReq.post("/tracks/", formData);
@@ -45,59 +50,96 @@ const TrackUploadForm = () => {
         console.log(err);
       }
     }
-  }; 
+  };
 
   return (
-    <div className={styles.center}>
-      <form onSubmit={handleSubmit}>
-        <div className={styles.container}>
-          <h1>Upload Track</h1>
-          <input
+    <div className={styles.FormContain}>
+      <Form className={styles.Form} onSubmit={handleSubmit}>
+        <Form.Group>
+          <Form.Label className={styles.FormLabel}>Track Title</Form.Label>
+          <Form.Control
+            className={styles.FormInput}
             type="text"
             placeholder="Title"
             name="title"
             value={title}
             onChange={handleChange}
-          ></input>
-          <input
+          />
+        </Form.Group>
+        {errors?.title?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
+
+        <Form.Group>
+          <Form.Label className={styles.FormLabel}>Audio Link</Form.Label>
+          <Form.Control
+            className={styles.FormInput}
             type="url"
             placeholder="Audio Link"
             name="audio"
             value={audio}
             onChange={handleChange}
-          ></input>
-          <input
+          />
+        </Form.Group>
+        {errors?.audio?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
+
+        <Form.Group>
+          <Form.Label className={styles.FormLabel}>Image Upload</Form.Label>
+          <Form.Control
+            className={styles.FormInput}
             type="file"
             placeholder="Image"
             name="image"
             value={image}
             onChange={handleChange}
             ref={imageInput}
-          ></input>
-          {errors.image?.map((message, idx) => (
-            <div key={idx}>{message}</div>
-          ))}
-          <input
+          />
+        </Form.Group>
+        {errors?.image?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
+
+        <Form.Group>
+          <Form.Label className={styles.FormLabel}>Track Info</Form.Label>
+          <Form.Control
+            className={styles.FormInput}
             type="text"
             placeholder="Track Info"
             name="content"
             value={content}
             onChange={handleChange}
-          ></input>
-          <select name="status" id="status" value={status} onChange={handleChange}>
+          />
+        </Form.Group>
+        {errors?.content?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
+
+        <Form.Group>
+          <select
+            name="status"
+            id="status"
+            value={status}
+            onChange={handleChange}
+          >
             <option value="draft">DRAFT</option>
             <option value="published">PUBLISHED</option>
           </select>
-          <div>
-            <button type="submit" className={styles.postbtn}>Post Track</button>
-          </div>
-          {errors.non_field_errors?.map((message, idx) => (
-            <div key={idx}>
-              {message}
-            </div>
-          ))}
-        </div>
-      </form>
+        </Form.Group>
+
+        <button type="submit" className={styles.FormBtn}>
+          Save
+        </button>
+      </Form>
     </div>
   );
 };
