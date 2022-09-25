@@ -51,7 +51,9 @@ function ProfilePage() {
       <div className={styles.PPflex}>
         <div className={styles.PPleft}>
           <div className={styles.PPuser}>
-            <img src={profile?.image} alt="test"></img>
+            <div className={styles.PPimgContain}>
+            <img src={profile?.profile_img} className={styles.PPimg} alt="test"></img>
+            </div>
             <h2>{profile?.owner}</h2>
             {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
           </div>

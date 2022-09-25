@@ -15,6 +15,20 @@
   margin: 1rem;
 }
 
+.PPimgContain {
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.PPimg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 .PPtracks {
   height: 20rem;
   border-top: 1px solid rgb(190, 190, 190);
@@ -30,13 +44,13 @@
 }
 
 .FollowBtn {
-    padding: 0 1rem;
-    border: 1px solid #146c78;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 1rem;
-    position: relative;
-    right: 100px;
+  padding: 0 1rem;
+  border: 1px solid #146c78;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 1rem;
+  position: relative;
+  right: 100px;
 }
 
 .PPstats {
@@ -63,6 +77,6 @@
 }
 
 .FollowBtn:hover {
-    background-color: #146C78;
-    color: white;
+  background-color: #146C78;
+  color: white;
 }
