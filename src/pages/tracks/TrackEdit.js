@@ -1,10 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
+
+import Alert from "react-bootstrap/Alert";
+import Form from "react-bootstrap/Form";
+
 import {
   useHistory,
   useParams,
 } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
-import styles from "../../styles/TrackEdit.module.css";
+import styles from "../../styles/FormPage.module.css";
 
 const TrackEdit = () => {
   const [trackData, setTrackData] = useState({
@@ -71,42 +75,78 @@ const TrackEdit = () => {
   };
 
   return (
-    <div className={styles.center}>
-      <form onSubmit={handleSubmit}>
-        <div className={styles.container}>
-          <h1>Upload Track</h1>
-          <input
+    <div className={styles.FormContain}>
+      <Form className={styles.Form} onSubmit={handleSubmit}>
+        <Form.Group>
+          <Form.Label className={styles.FormLabel}>Track Title</Form.Label>
+          <Form.Control
+            className={styles.FormInput}
             type="text"
             placeholder="Title"
             name="title"
             value={title}
             onChange={handleChange}
-          ></input>
-          <input
+          />
+        </Form.Group>
+        {errors?.title?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
+
+        <Form.Group>
+          <Form.Label className={styles.FormLabel}>Audio Link</Form.Label>
+          <Form.Control
+            className={styles.FormInput}
             type="url"
             placeholder="Audio Link"
             name="audio"
             value={audio}
             onChange={handleChange}
-          ></input>
-          <input
+          />
+        </Form.Group>
+        {errors?.audio?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
+
+        <Form.Group>
+          <Form.Label className={styles.FormLabel}>Image Upload</Form.Label>
+          <Form.Control
+            className={styles.FormInput}
             type="file"
             placeholder="Image"
             name="image"
             value={image}
             onChange={handleChange}
             ref={imageInput}
-          ></input>
-          {errors.image?.map((message, idx) => (
-            <div key={idx}>{message}</div>
-          ))}
-          <input
+          />
+        </Form.Group>
+        {errors?.image?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
+
+        <Form.Group>
+          <Form.Label className={styles.FormLabel}>Track Info</Form.Label>
+          <Form.Control
+            className={styles.FormInput}
             type="text"
             placeholder="Track Info"
             name="content"
             value={content}
             onChange={handleChange}
-          ></input>
+          />
+        </Form.Group>
+        {errors?.content?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
+
+        <Form.Group>
           <select
             name="status"
             id="status"
@@ -116,16 +156,19 @@ const TrackEdit = () => {
             <option value="draft">DRAFT</option>
             <option value="published">PUBLISHED</option>
           </select>
-          <div>
-            <button type="submit" className={styles.postbtn}>
-              Save
-            </button>
-          </div>
-          {errors.non_field_errors?.map((message, idx) => (
-            <div key={idx}>{message}</div>
-          ))}
+        </Form.Group>
+
+        <div>
+          <button type="submit" className={styles.FormBtn}>
+            Save
+          </button>
         </div>
-      </form>
+        {errors.non_field_errors?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
+      </Form>
     </div>
   );
 };

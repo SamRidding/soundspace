@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 import Alert from "react-bootstrap/Alert";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 import { axiosReq } from "../../api/axiosDefaults";
@@ -139,6 +138,11 @@ const TrackUploadForm = () => {
         <button type="submit" className={styles.FormBtn}>
           Save
         </button>
+        {errors.non_field_errors?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
       </Form>
     </div>
   );
