@@ -18,6 +18,13 @@ const EditPassword = () => {
   });
   const { new_pwd1, new_pw2 } = userData;
 
+  const handleChange = (event) => {
+    setUserData({
+      ...userData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   return (
     <div className={styles.FormContain}>
       <Form className={styles.Form}>
