@@ -18,7 +18,7 @@ export const ProfileEditDropdown = ({ id }) => {
   const history = useHistory();
 
   return (
-    <Dropdown className={`ml-auto px-3`} drop="left">
+    <Dropdown className={styles.PPedit}>
       <Dropdown.Toggle as={EditBtn} />
       <Dropdown.Menu>
         <Dropdown.Item

@@ -19,7 +19,7 @@ function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
   const { id } = useParams();
-  const {setProfileData, handleFollow, handleUnfollow} = useSetProfileData();
+  const { setProfileData, handleFollow, handleUnfollow } = useSetProfileData();
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
@@ -52,10 +52,16 @@ function ProfilePage() {
         <div className={styles.PPleft}>
           <div className={styles.PPuser}>
             <div className={styles.PPimgContain}>
-            <img src={profile?.profile_img} className={styles.PPimg} alt="test"></img>
+              <img
+                src={profile?.profile_img}
+                className={styles.PPimg}
+                alt="test"
+              ></img>
             </div>
-            <h2>{profile?.owner}</h2>
-            {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
+            <div className={styles.PPusername}>
+              <h2>{profile?.owner}</h2>
+              {profile?.is_owner && <ProfileEditDropdown id={profile?.id}/>}
+            </div>
           </div>
           <div className={styles.PPtracks}>
             {profileTracks.results.length ? (
@@ -91,11 +97,17 @@ function ProfilePage() {
           {currentUser &&
             !is_owner &&
             (profile?.following_id ? (
-              <button className={styles.FollowBtn} onClick={() => handleUnfollow(profile)}>
+              <button
+                className={styles.FollowBtn}
+                onClick={() => handleUnfollow(profile)}
+              >
                 unfollow
               </button>
             ) : (
-              <button className={styles.FollowBtn} onClick={() => handleFollow(profile)}>
+              <button
+                className={styles.FollowBtn}
+                onClick={() => handleFollow(profile)}
+              >
                 follow
               </button>
             ))}

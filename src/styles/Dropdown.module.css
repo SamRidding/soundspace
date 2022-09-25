@@ -1,0 +1,11 @@
+.PPedit {
+    cursor: pointer;
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 5px;
+    padding: 0 0.8rem;
+}
+
+.PPedit:hover {
+    background-color: #146C78;
+    color: white;
+}

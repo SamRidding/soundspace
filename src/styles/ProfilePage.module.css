@@ -29,10 +29,21 @@
   object-fit: contain;
 }
 
+.PPusername {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 0;
+}
+
+.PPusername h2 {
+  margin-right: 0.8rem;
+}
+
 .PPtracks {
   height: 20rem;
   border-top: 1px solid rgb(190, 190, 190);
-  margin: 1rem;
+  margin: 1rem 0;
+  padding: 1rem 0;
 }
 
 .PPleft {
