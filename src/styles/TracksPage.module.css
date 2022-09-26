@@ -22,10 +22,8 @@
 .searchTerm {
   width: 100%;
   border: 1px solid rgb(190, 190, 190);
-  border-right: none;
-  padding: 5px;
-  height: 24px;
-  border-radius: 5px 0 0 5px;
+  padding: 0.2rem 0.6rem;
+  border-radius: 5px;
   outline: none;
   color: #9dbfaf;
 }
