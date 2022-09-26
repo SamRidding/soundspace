@@ -14,6 +14,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Track from "../tracks/Track";
 import { fetchMoreData } from "../../utils/utils";
 import { ProfileEditDropdown } from "../../components/Dropdown";
+import LikedTracks from "../tracks/LikedTracks";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -111,7 +112,7 @@ function ProfilePage() {
               <p className={styles.PPstatNo}>{profile?.following_count}</p>
             </div>
           </div>
-          <div className={styles.PPbio}>{profile?.bio}</div>
+          <div className={styles.PPbio}>{profile?.bio}<LikedTracks /></div>
         </div>
       </div>
     </div>
