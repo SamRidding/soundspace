@@ -1,11 +1,4 @@
-/* .CFcontain {
-    width: 90%;
-    margin: 0 auto;
-    background-color: white;
-} */
-
 .CF {
-    width: 80%;
     background-color: none;
     display: flex;
     justify-content: center;

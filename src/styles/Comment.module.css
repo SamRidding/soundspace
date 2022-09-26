@@ -1,14 +1,14 @@
-.CommentContain { 
+/* .CommentContain { 
     width: 90%;
     margin: 0 auto;
     padding-top: 0.8rem;
     background-color: white;
-}
+} */
 
 .CommentFlex {
     display: flex;
     justify-content: space-between;
-    margin: 0 1rem;
+    margin: 1rem;
 }
 
 .CommentLeft {
