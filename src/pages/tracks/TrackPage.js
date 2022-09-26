@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-// import styles from "../../styles/TrackPage.module.css";
+import styles from "../../styles/TrackPage.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router-dom";
 import Track from "./Track";
@@ -37,7 +37,7 @@ const TrackPage = () => {
   return (
     <div>
       <Track {...track.results[0]} setTracks={setTrack} TrackPage />
-      <div>
+      <div className={styles.CommentSection}>
         {currentUser ? (
           <CommentForm
             profile_id={currentUser.profile_id}
@@ -59,9 +59,9 @@ const TrackPage = () => {
             />
           ))
         ) : currentUser ? (
-          <span>Add a comment</span>
+          <div className={styles.AddComment}>Add a comment</div>
         ) : (
-          <span>Log in to post the first comment</span>
+          <div className={styles.AddComment}>Log in to post the first comment</div>
         )}
       </div>
     </div>
