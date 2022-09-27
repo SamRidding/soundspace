@@ -24,27 +24,34 @@ function ProfilePage() {
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
   const [profileTracks, setProfileTracks] = useState({ results: [] });
+  const [likedTracks, setLikedTracks] = useState({ results: [] });
+  const userID = currentUser?.pk;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [{ data: pageProfile }, { data: profileTracks }] =
-          await Promise.all([
-            axiosReq.get(`/profiles/${id}/`),
-            axiosReq.get(`/tracks/?owner__profile=${id}`),
-          ]);
+        const [
+          { data: pageProfile },
+          { data: profileTracks },
+          { data: likedTracks },
+        ] = await Promise.all([
+          axiosReq.get(`/profiles/${id}/`),
+          axiosReq.get(`/tracks/?owner__profile=${id}`),
+          axiosReq.get(`/tracks/?likes__owner__profile=${userID}`),
+        ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
         setProfileTracks(profileTracks);
+        setLikedTracks(likedTracks);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
       }
     };
     fetchData();
-  }, [id, setProfileData]);
+  }, [id, setProfileData, userID]);
 
   return (
     <div className={styles.PPcontain}>
@@ -112,6 +119,18 @@ function ProfilePage() {
             </div>
           </div>
           <div className={styles.PPbio}>{profile?.bio}</div>
+          <div>
+            {likedTracks.results.length ? (
+              <>
+                <p>Liked Tracks</p>
+                {likedTracks.results.slice(0, 5).map((track) => (
+                  <Track key={track.id} {...track} setTracks={setLikedTracks} />
+                ))}
+              </>
+            ) : (
+              <Loading />
+            )}
+          </div>
         </div>
       </div>
     </div>
