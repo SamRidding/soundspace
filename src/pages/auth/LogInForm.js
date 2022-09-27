@@ -1,6 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
-import styles from "../../styles/LogInForm.module.css";
+import styles from "../../styles/FormPage.module.css";
+
+import Alert from "react-bootstrap/Alert";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 import { useHistory } from "react-router-dom";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContexts";
@@ -37,40 +41,52 @@ const LogInForm = () => {
   };
 
   return (
-    <div className={styles.center}>
-      <form onSubmit={handleSubmit}>
-        <div className={styles.container}>
-          <h1>LOG IN</h1>
-          <input
+    <div className={styles.FormContain}>
+      <Form onSubmit={handleSubmit} className={styles.Form}>
+        <h1>LOG IN</h1>
+        <Form.Group>
+          <Form.Label className={styles.container}>Display name</Form.Label>
+          <Form.Control
+            className={styles.FormInput}
             type="text"
             placeholder="Enter Username"
             name="username"
             value={username}
             onChange={handleChange}
             required
-          ></input>
-          {errors.username?.map((message, idx) => (
-            <div key={idx}>{message}</div>
-          ))}
-          <input
+          />
+        </Form.Group>
+        {errors?.username?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
+        <Form.Group>
+          <Form.Label className={styles.container}>Display name</Form.Label>
+          <Form.Control
+            className={styles.FormInput}
             type="password"
             placeholder="Enter Password"
             name="password"
             value={password}
             onChange={handleChange}
             required
-          ></input>
-          {errors.password?.map((message, idx) => (
-            <div key={idx}>{message}</div>
-          ))}
-          <div>
-            <button type="submit" className={styles.postbtn}>Log In</button>
-          </div>
-          {errors.non_field_errors?.map((message, idx) => (
-            <div key={idx}>{message}</div>
-          ))}
-        </div>
-      </form>
+          />
+        </Form.Group>
+        {errors?.password?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
+        <Button type="submit" className={styles.FormBtn}>
+          Log in
+        </Button>
+        {errors.non_field_errors?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
+      </Form>
     </div>
   );
 };
