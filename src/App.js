@@ -22,9 +22,10 @@ function App() {
     <div className={styles.App}>
       <NavBar />
       <Switch>
+        <Route exact path="/" render={() => <TracksPage />} />
         <Route
           exact
-          path="/"
+          path="/feed"
           render={() => (
             <TracksPage
               filter={`owner__followed__owner__profile=${profile_id}&`}
