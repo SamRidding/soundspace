@@ -48,7 +48,7 @@ const Comment = (props) => {
       <div className={styles.CommentFlex}>
         <div className={styles.CommentLeft}>
           <Link to={`/profiles/${profile_id}`} className={styles.ProfileImg}>
-            <UserPic src={profile_img} />
+            <UserPic src={currentUser?.profile_image} />
           </Link>
           <div>
             <span>{owner}</span>
