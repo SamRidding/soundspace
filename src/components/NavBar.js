@@ -40,6 +40,12 @@ const NavBar = () => {
         {currentUser?.username}
         <UserPic src={currentUser?.profile_image} height={40} />
       </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        to="/feed"
+      >
+        Feed
+      </NavLink>
       {currentUser && uploadLink}
       <NavLink className={styles.NavLink} to="/" onClick={handleLogOut}>
         Log Out
