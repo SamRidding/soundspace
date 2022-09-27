@@ -1,7 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import styles from "../../styles/SignUpForm.module.css";
+import styles from "../../styles/FormPage.module.css";
+
+import Alert from "react-bootstrap/Alert";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 const SignUpForm = () => {
   const [signUpData, setSignUpData] = useState({
@@ -34,56 +38,69 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className={styles.center}>
-      <form onSubmit={handleSubmit}>
-        <div className={styles.container}>
-          <h1>SIGN UP</h1>
-          <input
+    <div className={styles.FormContain}>
+      <Form onSubmit={handleSubmit} className={styles.Form}>
+        <h1>SIGN UP</h1>
+        <Form.Group>
+          <Form.Label className={styles.container}>Display name</Form.Label>
+          <Form.Control
+            className={styles.FormInput}
             type="text"
             placeholder="Enter Username"
-            className={styles.forminput}
             name="username"
             value={username}
             onChange={handleChange}
             required
-          ></input>
-          {errors.username?.map((message, idx) => (
-            <div key={idx}>{message}</div>
-          ))}
-          <input
+          />
+        </Form.Group>
+        {errors?.username?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
+        <Form.Group>
+          <Form.Label className={styles.container}>Password</Form.Label>
+          <Form.Control
+            className={styles.FormInput}
             type="password"
             placeholder="Enter Password"
-            className={styles.forminput}
             name="password1"
             value={password1}
             onChange={handleChange}
             required
-          ></input>
-          {errors.password1?.map((message, idx) => (
-            <div key={idx}>{message}</div>
-          ))}
-          <input
+          />
+        </Form.Group>
+        {errors?.password1?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
+        <Form.Group>
+          <Form.Label className={styles.container}>Password</Form.Label>
+          <Form.Control
+            className={styles.FormInput}
             type="password"
-            placeholder="Confirm Password"
-            className={styles.forminput}
+            placeholder="Re-enter Password"
             name="password2"
             value={password2}
             onChange={handleChange}
             required
-          ></input>
-          {errors.password2?.map((message, idx) => (
-            <div key={idx}>{message}</div>
-          ))}
-          <div>
-            <button type="submit" className={styles.postbtn}>Sign Up</button>
-          </div>
-          {errors.non_field_errors?.map((message, idx) => (
-            <div key={idx}>
-              {message}
-            </div>
-          ))}
-        </div>
-      </form>
+          />
+        </Form.Group>
+        {errors?.password2?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
+        <Button type="submit" className={styles.FormBtn}>
+          Sign Up
+        </Button>
+        {errors.non_field_errors?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
+      </Form>
     </div>
   );
 };
