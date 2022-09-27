@@ -91,3 +91,15 @@
   }
 
 }
+
+@media (max-width: 480px) {
+
+  .TPleft {
+    width: 100%;
+  }
+
+  .TPright {
+    display: none;
+  }
+
+}
