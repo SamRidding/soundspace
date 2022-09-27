@@ -1,0 +1,22 @@
+.PNFcontain {
+  display: flex;
+  justify-content: center;
+}
+
+.PNFmessage {
+  padding: 3rem;
+  background-color: #146c78;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 10rem;
+  color: white;
+  text-decoration: none;
+}
+
+.PNFmessage:hover {
+  text-decoration: none;
+}
+
+.PNFlink:hover {
+  text-decoration: none;
+}
