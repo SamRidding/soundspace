@@ -20,7 +20,7 @@
 }
 
 .searchTerm {
-  width: 100%;
+  width: 95%;
   border: 1px solid rgb(190, 190, 190);
   padding: 0.2rem 0.6rem;
   border-radius: 5px;
@@ -59,4 +59,35 @@
   width: 25%;
   border-left: 1px solid rgb(190, 190, 190);
   padding-left: 1rem;
+}
+
+@media (max-width: 1024px) {
+
+  .TPcontain {
+    width: 95%;
+  }
+
+  .TPflex {
+    justify-content: center;
+  }
+
+  .TPleft {
+    width: 65%;
+  }
+
+  .TPright {
+    width: 35%;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .TPleft {
+    width: 85%;
+  }
+
+  .TPright {
+    width: 15%;
+  }
+
 }

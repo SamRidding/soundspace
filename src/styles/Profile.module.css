@@ -27,3 +27,15 @@
     background-color: #146C78;
     color: white;
 }
+
+@media (max-width: 768px) {
+  .Pcontain {
+    flex-direction: column;
+  }
+
+  .Puser {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}
