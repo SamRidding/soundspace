@@ -18,3 +18,8 @@
     color: #146C78;
     text-decoration: none;
 }
+
+.NavDropdown {
+    background-color: #595B5D;
+    z-index: 100;
+}

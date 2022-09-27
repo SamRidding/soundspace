@@ -73,7 +73,7 @@ const NavBar = () => {
         onClick={() => setExpanded(!expanded)}
         aria-controls="basic-navbar-nav"
       />
-      <Navbar.Collapse id="basic-navbar-nav">
+      <Navbar.Collapse id="basic-navbar-nav" className={styles.NavDropdown}>
         <Nav className="ml-auto text-left">
           {currentUser ? loggedInLinks : loggedOutLinks}
         </Nav>
