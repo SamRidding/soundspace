@@ -13,6 +13,7 @@ import ProfilePage from "./pages/profiles/ProfilePage";
 import EditPassword from "./pages/profiles/EditPassword";
 import EditProfile from "./pages/profiles/EditProfile";
 import EditUsername from "./pages/profiles/EditUsername";
+import PageNotFound from "./components/PageNotFound";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -49,6 +50,7 @@ function App() {
           path="/profiles/:id/edit/password"
           render={() => <EditPassword />}
         />
+         <Route render={() => <PageNotFound />} />
       </Switch>
     </div>
   );
