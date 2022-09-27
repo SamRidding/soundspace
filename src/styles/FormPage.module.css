@@ -35,3 +35,11 @@
     color: #146C78;
     background-color: white;
 }
+
+@media (max-width: 768px) {
+
+    .Form {
+        width: 100%;
+    }
+  
+  }

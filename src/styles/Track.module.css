@@ -60,3 +60,11 @@
     text-decoration: none;
     color: #146C78;
 }
+
+@media (max-width: 768px) {
+
+    .interact {
+        justify-content: space-evenly;
+    }
+  
+  }
