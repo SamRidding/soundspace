@@ -9,6 +9,7 @@ import {
 import UserPic from "./UserPic";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
+import logo from "../assets/logo.png";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -40,10 +41,7 @@ const NavBar = () => {
         {currentUser?.username}
         <UserPic src={currentUser?.profile_image} height={40} />
       </NavLink>
-      <NavLink
-        className={styles.NavLink}
-        to="/feed"
-      >
+      <NavLink className={styles.NavLink} to="/feed">
         Feed
       </NavLink>
       {currentUser && uploadLink}
@@ -67,7 +65,7 @@ const NavBar = () => {
     <Navbar expanded={expanded} className={styles.Nav} expand="md">
       <NavLink to="/">
         <Navbar.Brand>
-          <h1>Logo</h1>
+          <img src={logo} alt="logo" height="45" />
         </Navbar.Brand>
       </NavLink>
       <Navbar.Toggle
