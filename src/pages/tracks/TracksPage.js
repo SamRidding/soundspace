@@ -5,8 +5,10 @@ import Track from "./Track";
 import Loading from "../../components/Loading";
 import { useCurrentUser } from "../../contexts/CurrentUserContexts";
 import ProfileSuggest from "../profiles/ProfileSuggest";
+import { fetchMoreData } from "../../utils/utils";
 
 import styles from "../../styles/TracksPage.module.css";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 function TracksPage({ filter = "" }) {
   const [tracks, setTracks] = useState({ results: [] });
@@ -57,9 +59,15 @@ function TracksPage({ filter = "" }) {
           {hasLoaded ? (
             <>
               {tracks.results.length ? (
-                tracks.results.map((track) => (
-                  <Track key={track.id} {...track} setTracks={setTracks} />
-                ))
+                <InfiniteScroll
+                  children={tracks.results.map((track) => (
+                    <Track key={track.id} {...track} setTracks={setTracks} />
+                  ))}
+                  dataLength={tracks.results.length}
+                  loader={<Loading />}
+                  hasMore={!!tracks.next}
+                  next={() => fetchMoreData(tracks, setTracks)}
+                />
               ) : (
                 <div className={styles.Results}>No Results</div>
               )}
