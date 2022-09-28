@@ -6,7 +6,7 @@ import { useSetProfileData } from "../../contexts/ProfileDataContext";
 import styles from "../../styles/Profile.module.css";
 
 const Profile = (props) => {
-  const { profile, mobile, imageSize = 55 } = props;
+  const { profile, imageSize = 55 } = props;
   const { id, following_id, profile_img, owner } = profile;
 
   const currentUser = useCurrentUser();

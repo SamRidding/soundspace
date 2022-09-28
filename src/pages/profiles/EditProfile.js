@@ -24,7 +24,7 @@ const EditProfile = () => {
     bio: "",
     profile_img: "",
   });
-  const { display_name, bio, profile_img } = profileData;
+  const { display_name, bio } = profileData;
 
   const [errors, setErrors] = useState({});
 

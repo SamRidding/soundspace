@@ -11,7 +11,6 @@ import styles from "../../styles/Comment.module.css";
 const Comment = (props) => {
   const {
     profile_id,
-    profile_img,
     owner,
     posted_at,
     content,

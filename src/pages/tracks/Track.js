@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "../../styles/Track.module.css";
-import UserPic from "../../components/UserPic";
 import { useCurrentUser } from "../../contexts/CurrentUserContexts";
 import { Link, useHistory } from "react-router-dom";
 import ReactPlayer from "react-player";

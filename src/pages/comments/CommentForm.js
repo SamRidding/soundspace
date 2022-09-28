@@ -3,7 +3,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 import styles from "../../styles/CommentForm.module.css"
 
 function CommentForm(props) {
-  const { track, setTrack, setComments, profileImage, profile_id } = props;
+  const { track, setTrack, setComments } = props;
   const [content, setContent] = useState("");
 
   const handleChange = (event) => {
