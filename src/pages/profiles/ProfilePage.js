@@ -25,6 +25,7 @@ function ProfilePage() {
   const is_owner = currentUser?.username === profile?.owner;
   const [profileTracks, setProfileTracks] = useState({ results: [] });
   const [likedTracks, setLikedTracks] = useState({ results: [] });
+  const [repostedTracks, setRepostedTracks] = useState({ results: [] });
   const userID = currentUser?.pk;
 
   useEffect(() => {
@@ -34,10 +35,12 @@ function ProfilePage() {
           { data: pageProfile },
           { data: profileTracks },
           { data: likedTracks },
+          { data: repostedTracks },
         ] = await Promise.all([
           axiosReq.get(`/profiles/${id}/`),
           axiosReq.get(`/tracks/?owner__profile=${id}`),
           axiosReq.get(`/tracks/?likes__owner__profile=${userID}`),
+          axiosReq.get(`/tracks/?reposts__owner__profile=${userID}`),
         ]);
         setProfileData((prevState) => ({
           ...prevState,
@@ -45,6 +48,7 @@ function ProfilePage() {
         }));
         setProfileTracks(profileTracks);
         setLikedTracks(likedTracks);
+        setRepostedTracks(repostedTracks);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -75,8 +79,8 @@ function ProfilePage() {
     <>
       {is_owner && likedTracks.results.length ? (
         likedTracks.results.slice(0, 5).map((track) => (
-          <div className={styles.LTcontain}>
-            <Link to={`/tracks/${track.id}`} className={styles.LikesLink}>
+          <div>
+            <Link to={`/tracks/${track.id}`} className={styles.LRlink}>
               {track.title}
             </Link>
           </div>
@@ -86,6 +90,22 @@ function ProfilePage() {
       )}
     </>
   );
+
+  const userReposts = (
+    <>
+      {is_owner && repostedTracks.results.length ? (
+        repostedTracks.results.slice(0, 5).map((track) => (
+          <div>
+            <Link to={`/tracks/${track.id}`} className={styles.LRlink}>
+              {track.title}
+            </Link>
+          </div>
+        ))
+      ) : (
+        <div className={styles.Results}>No Results</div>
+      )}
+    </>
+  )
 
   return (
     <div className={styles.PPcontain}>
@@ -143,10 +163,20 @@ function ProfilePage() {
             </div>
           </div>
           <div className={styles.PPbio}>{profile?.bio}</div>
-          <div className={styles.LikesContain}>
-            <p className={styles.LikesHeader}>Liked Tracks</p>
+          <div className={styles.LRcontain}>
+            <p className={styles.LRheader}>Liked Tracks</p>
             {hasLoaded ? (
               <>{userLikes}</>
+            ) : (
+              <div className={styles.Results}>
+                <Loading />
+              </div>
+            )}
+          </div>
+          <div className={styles.LRcontain}>
+            <p className={styles.LRheader}>Reposts</p>
+            {hasLoaded ? (
+              <>{userReposts}</>
             ) : (
               <div className={styles.Results}>
                 <Loading />
