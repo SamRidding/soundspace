@@ -123,3 +123,21 @@
   background-color: #146c78;
   color: white;
 }
+
+@media (max-width: 480px) {
+  .PPright {
+    display: none;
+  }
+
+  .PPleft {
+    width: 100%;
+  }
+
+  .PPimgContain {
+    margin: 0 auto;
+  }
+
+  .PPusername {
+    justify-content: center;
+  }
+}
