@@ -4,7 +4,6 @@ import { axiosRes } from "../../api/axiosDefaults";
 
 import UserPic from "../../components/UserPic";
 import { useCurrentUser } from "../../contexts/CurrentUserContexts";
-// import CommentEdit from "./CommentEdit";
 
 import styles from "../../styles/Comment.module.css";
 
@@ -19,7 +18,6 @@ const Comment = (props) => {
     setComments,
   } = props;
 
-  // const [showEditForm, setShowEditForm] = useState(false);
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
@@ -61,7 +59,6 @@ const Comment = (props) => {
               <span>
                 <i
                   class="fas fa-edit"
-                  // onClick={setShowEditForm(true)}
                 ></i>
               </span>
               <span onClick={handleDelete}>
@@ -73,21 +70,6 @@ const Comment = (props) => {
           )}
         </div>
       </div>
-      {/* <div>
-        {showEditForm ? (
-          <CommentEdit
-            id={id}
-            profile_id={profile_id}
-            content={content}
-            profileImage={profile_img}
-            setComments={setComments}
-            setShowEditForm={setShowEditForm}
-          />
-        ) : (
-          <p>{content}</p>
-        )}
-
-      </div> */}
     </div>
   );
 };

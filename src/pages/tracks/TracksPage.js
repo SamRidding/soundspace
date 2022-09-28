@@ -52,9 +52,6 @@ function TracksPage({ filter = "" }) {
                 className={styles.searchTerm}
                 placeholder="Search tracks"
               ></input>
-              {/* <button type="submit" class={styles.searchButton}>
-                <i className="fa fa-search"></i>
-              </button> */}
             </div>
           </form>
           {hasLoaded ? (
