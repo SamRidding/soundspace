@@ -121,14 +121,14 @@ function ProfilePage() {
             </div>
           </div>
           <div className={styles.PPbio}>{profile?.bio}</div>
-          <div>
-            <p>Liked Tracks</p>
+          <div className={styles.LikesContain}>
+            <p className={styles.LikesHeader}>Liked Tracks</p>
             {hasLoaded ? (
               <>
                 {is_owner && likedTracks.results.length ? (
                   likedTracks.results.slice(0, 5).map((track) => (
                     <div className={styles.LTcontain}>
-                      <Link to={`/tracks/${track.id}`}>{track.title}</Link>
+                      <Link to={`/tracks/${track.id}`} className={styles.LikesLink}>{track.title}</Link>
                     </div>
                   ))
                 ) : (
