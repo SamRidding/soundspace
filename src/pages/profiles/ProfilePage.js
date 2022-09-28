@@ -66,7 +66,7 @@ function ProfilePage() {
           next={() => fetchMoreData(profileTracks, setProfileTracks)}
         />
       ) : (
-        <div>No Results</div>
+        <div className={styles.Results}>No Results</div>
       )}
     </>
   );
@@ -82,7 +82,7 @@ function ProfilePage() {
           </div>
         ))
       ) : (
-        <div className={styles.LTcontain}>No results</div>
+        <div className={styles.Results}>No Results</div>
       )}
     </>
   );
@@ -122,7 +122,13 @@ function ProfilePage() {
               ))}
           </div>
           <div className={styles.PPtracks}>
-            {hasLoaded ? <>{userTracks}</> : <Loading />}
+            {hasLoaded ? (
+              <>{userTracks}</>
+            ) : (
+              <div className={styles.Results}>
+                <Loading />
+              </div>
+            )}
           </div>
         </div>
         <div className={styles.PPright}>
@@ -139,7 +145,13 @@ function ProfilePage() {
           <div className={styles.PPbio}>{profile?.bio}</div>
           <div className={styles.LikesContain}>
             <p className={styles.LikesHeader}>Liked Tracks</p>
-            {hasLoaded ? <>{userLikes}</> : <Loading />}
+            {hasLoaded ? (
+              <>{userLikes}</>
+            ) : (
+              <div className={styles.Results}>
+                <Loading />
+              </div>
+            )}
           </div>
         </div>
       </div>
