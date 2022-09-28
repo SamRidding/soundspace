@@ -120,12 +120,19 @@ function ProfilePage() {
           </div>
           <div className={styles.PPbio}>{profile?.bio}</div>
           <div>
-            {likedTracks.results.length ? (
+            <p>Liked Tracks</p>
+            {hasLoaded ? (
               <>
-                <p>Liked Tracks</p>
-                {likedTracks.results.slice(0, 5).map((track) => (
-                  <Track key={track.id} {...track} setTracks={setLikedTracks} />
-                ))}
+                {is_owner && likedTracks.results.length ? (
+                  likedTracks.results.slice(0, 5).map((track) => (
+                    <div className={styles.LTcontain}>
+                      {track.title}
+                      {track.image}
+                    </div>
+                  ))
+                ) : (
+                  <div className={styles.LTcontain}>No results</div>
+                )}
               </>
             ) : (
               <Loading />
