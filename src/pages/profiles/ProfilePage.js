@@ -53,6 +53,24 @@ function ProfilePage() {
     fetchData();
   }, [id, setProfileData, userID]);
 
+  const userTracks = (
+    <>
+      {profileTracks.results.length ? (
+        <InfiniteScroll
+          children={profileTracks.results.map((track) => (
+            <Track key={track.id} {...track} setTracks={setProfileTracks} />
+          ))}
+          dataLength={profileTracks.results.length}
+          loader={<Loading />}
+          hasMore={!!profileTracks.next}
+          next={() => fetchMoreData(profileTracks, setProfileTracks)}
+        />
+      ) : (
+        <div>No Results</div>
+      )}
+    </>
+  );
+
   return (
     <div className={styles.PPcontain}>
       <div className={styles.PPflex}>
@@ -88,23 +106,13 @@ function ProfilePage() {
               ))}
           </div>
           <div className={styles.PPtracks}>
-            {profileTracks.results.length ? (
-              <InfiniteScroll
-                children={profileTracks.results.map((track) => (
-                  <Track
-                    key={track.id}
-                    {...track}
-                    setTracks={setProfileTracks}
-                  />
-                ))}
-                dataLength={profileTracks.results.length}
-                loader={<Loading />}
-                hasMore={!!profileTracks.next}
-                next={() => fetchMoreData(profileTracks, setProfileTracks)}
-              />
+            {hasLoaded ? (
+              <>
+              {userTracks}
+              </>
             ) : (
               <Loading />
-            )}
+            )} 
           </div>
         </div>
         <div className={styles.PPright}>
