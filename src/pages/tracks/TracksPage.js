@@ -3,6 +3,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 import Track from "./Track";
 import Loading from "../../components/Loading";
+import { useCurrentUser } from "../../contexts/CurrentUserContexts";
 import ProfileSuggest from "../profiles/ProfileSuggest";
 
 import styles from "../../styles/TracksPage.module.css";
@@ -10,6 +11,7 @@ import styles from "../../styles/TracksPage.module.css";
 function TracksPage({ filter = "" }) {
   const [tracks, setTracks] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
+  const currentUser = useCurrentUser();
 
   const [query, setQuery] = useState("");
 
@@ -32,7 +34,7 @@ function TracksPage({ filter = "" }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query]);
+  }, [filter, query, currentUser]);
 
   return (
     <div className={styles.TPcontain}>
