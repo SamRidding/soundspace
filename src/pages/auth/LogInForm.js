@@ -8,6 +8,7 @@ import Form from "react-bootstrap/Form";
 
 import { useHistory } from "react-router-dom";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContexts";
+import { setTokenTimestamp } from "../../utils/utils";
 
 const LogInForm = () => {
   const setCurrentUser = useSetCurrentUser();
@@ -22,11 +23,13 @@ const LogInForm = () => {
   const [errors, setErrors] = useState({});
 
   const history = useHistory();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const { data } = await axios.post("/dj-rest-auth/login/", logInData);
       setCurrentUser(data.user);
+      setTokenTimestamp(data);
       history.push("/");
     } catch (err) {
       setErrors(err.response?.data);
