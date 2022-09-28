@@ -20,7 +20,7 @@ const Track = (props) => {
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/tracks/${id}/`);
-      history.goBack();
+      history.push("/");
     } catch (err) {
       console.log(err);
     }
