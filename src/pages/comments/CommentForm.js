@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { axiosRes } from "../../api/axiosDefaults";
-import styles from "../../styles/CommentForm.module.css"
+import styles from "../../styles/CommentForm.module.css";
 
 function CommentForm(props) {
   const { track, setTrack, setComments } = props;
@@ -30,23 +30,23 @@ function CommentForm(props) {
         ],
       }));
       setContent("");
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   return (
     <div className={styles.CFcontain}>
       <form onSubmit={handleSubmit} className={styles.CF}>
-          <input
-            type="text"
-            placeholder="Enter a comment"
-            name="comment"
-            className={styles.CFinput}
-            value={content}
-            onChange={handleChange}
-          ></input>
-          <button type="submit" className={styles.CFbtn}>Post</button>
+        <input
+          type="text"
+          placeholder="Enter a comment"
+          name="comment"
+          className={styles.CFinput}
+          value={content}
+          onChange={handleChange}
+        ></input>
+        <button type="submit" className={styles.CFbtn}>
+          Post
+        </button>
       </form>
     </div>
   );

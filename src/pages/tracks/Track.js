@@ -20,9 +20,7 @@ const Track = (props) => {
     try {
       await axiosRes.delete(`/tracks/${id}/`);
       history.push("/");
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   const handleLike = async () => {
@@ -36,9 +34,7 @@ const Track = (props) => {
             : track;
         }),
       }));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   const handleUnlike = async () => {
@@ -52,9 +48,7 @@ const Track = (props) => {
             : track;
         }),
       }));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   const handleRepost = async () => {
@@ -66,9 +60,7 @@ const Track = (props) => {
           return track.id === id ? { ...track, repost_id: data.id } : track;
         }),
       }));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   const removeRepost = async () => {
@@ -80,9 +72,7 @@ const Track = (props) => {
           return track.id === id ? { ...track, repost_id: null } : track;
         }),
       }));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   const trackIcons = (

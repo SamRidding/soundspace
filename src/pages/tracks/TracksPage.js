@@ -21,9 +21,7 @@ function TracksPage({ filter = "" }) {
         );
         setTracks(data);
         setHasLoaded(true);
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     };
 
     setHasLoaded(false);

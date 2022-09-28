@@ -35,9 +35,7 @@ const TrackEdit = () => {
         is_owner
           ? setTrackData({ title, audio, image, content, status })
           : history.push("/");
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     };
 
     handleMount();
@@ -66,10 +64,8 @@ const TrackEdit = () => {
       await axiosReq.put(`/tracks/${id}/`, formData);
       history.push(`/tracks/${id}`);
     } catch (err) {
-      console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
-        console.log(err);
       }
     }
   };

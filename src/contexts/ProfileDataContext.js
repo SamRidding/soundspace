@@ -37,9 +37,7 @@ export const ProfileDataProvider = ({ children }) => {
           ),
         },
       }));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   const handleUnfollow = async (clickedProfile) => {
@@ -59,9 +57,7 @@ export const ProfileDataProvider = ({ children }) => {
           ),
         },
       }));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   useEffect(() => {
@@ -72,16 +68,16 @@ export const ProfileDataProvider = ({ children }) => {
           ...prevState,
           profileSuggest: data,
         }));
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     };
     handleMount();
   }, [currentUser]);
 
   return (
     <ProfileDataContext.Provider value={profileData}>
-      <SetProfileDataContext.Provider value={{ setProfileData, handleFollow, handleUnfollow }}>
+      <SetProfileDataContext.Provider
+        value={{ setProfileData, handleFollow, handleUnfollow }}
+      >
         {children}
       </SetProfileDataContext.Provider>
     </ProfileDataContext.Provider>

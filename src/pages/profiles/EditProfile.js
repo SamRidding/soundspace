@@ -36,7 +36,6 @@ const EditProfile = () => {
           const { display_name, bio, profile_img } = data;
           setProfileData({ display_name, bio, profile_img });
         } catch (err) {
-          console.log(err);
           history.push("/");
         }
       } else {
@@ -72,7 +71,6 @@ const EditProfile = () => {
       }));
       history.goBack();
     } catch (err) {
-      console.log(err);
       setErrors(err.response?.data);
     }
   };

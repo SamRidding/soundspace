@@ -51,7 +51,6 @@ function ProfilePage() {
         setRepostedTracks(repostedTracks);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
       }
     };
     fetchData();

@@ -26,9 +26,7 @@ const TrackPage = () => {
         ]);
         setTrack({ results: [track] });
         setComments(comments);
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     };
 
     handleMount();
@@ -61,7 +59,9 @@ const TrackPage = () => {
         ) : currentUser ? (
           <div className={styles.AddComment}>Add a comment</div>
         ) : (
-          <div className={styles.AddComment}>Log in to post the first comment</div>
+          <div className={styles.AddComment}>
+            Log in to post the first comment
+          </div>
         )}
       </div>
     </div>

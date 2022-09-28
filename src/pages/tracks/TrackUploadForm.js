@@ -43,10 +43,8 @@ const TrackUploadForm = () => {
       const { data } = await axiosReq.post("/tracks/", formData);
       history.push(`/tracks/${data.id}`);
     } catch (err) {
-      console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
-        console.log(err);
       }
     }
   };
