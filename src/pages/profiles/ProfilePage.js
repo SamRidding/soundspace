@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import Loading from "../../components/Loading";
 
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContexts";
 import {
@@ -106,13 +106,7 @@ function ProfilePage() {
               ))}
           </div>
           <div className={styles.PPtracks}>
-            {hasLoaded ? (
-              <>
-              {userTracks}
-              </>
-            ) : (
-              <Loading />
-            )} 
+            {hasLoaded ? <>{userTracks}</> : <Loading />}
           </div>
         </div>
         <div className={styles.PPright}>
@@ -134,8 +128,7 @@ function ProfilePage() {
                 {is_owner && likedTracks.results.length ? (
                   likedTracks.results.slice(0, 5).map((track) => (
                     <div className={styles.LTcontain}>
-                      {track.title}
-                      {track.image}
+                      <Link to={`/tracks/${track.id}`}>{track.title}</Link>
                     </div>
                   ))
                 ) : (
