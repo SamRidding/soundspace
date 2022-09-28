@@ -71,6 +71,22 @@ function ProfilePage() {
     </>
   );
 
+  const userLikes = (
+    <>
+      {is_owner && likedTracks.results.length ? (
+        likedTracks.results.slice(0, 5).map((track) => (
+          <div className={styles.LTcontain}>
+            <Link to={`/tracks/${track.id}`} className={styles.LikesLink}>
+              {track.title}
+            </Link>
+          </div>
+        ))
+      ) : (
+        <div className={styles.LTcontain}>No results</div>
+      )}
+    </>
+  );
+
   return (
     <div className={styles.PPcontain}>
       <div className={styles.PPflex}>
@@ -123,21 +139,7 @@ function ProfilePage() {
           <div className={styles.PPbio}>{profile?.bio}</div>
           <div className={styles.LikesContain}>
             <p className={styles.LikesHeader}>Liked Tracks</p>
-            {hasLoaded ? (
-              <>
-                {is_owner && likedTracks.results.length ? (
-                  likedTracks.results.slice(0, 5).map((track) => (
-                    <div className={styles.LTcontain}>
-                      <Link to={`/tracks/${track.id}`} className={styles.LikesLink}>{track.title}</Link>
-                    </div>
-                  ))
-                ) : (
-                  <div className={styles.LTcontain}>No results</div>
-                )}
-              </>
-            ) : (
-              <Loading />
-            )}
+            {hasLoaded ? <>{userLikes}</> : <Loading />}
           </div>
         </div>
       </div>
