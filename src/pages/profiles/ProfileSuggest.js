@@ -3,7 +3,7 @@ import { useProfileData } from "../../contexts/ProfileDataContext";
 import Loading from "../../components/Loading";
 import Profile from "./Profile";
 
-import styles from "../../styles/ProfileSuggest.module.css"
+import styles from "../../styles/ProfileSuggest.module.css";
 
 const ProfileSuggest = () => {
   const { profileSuggest } = useProfileData();
@@ -13,12 +13,14 @@ const ProfileSuggest = () => {
       {profileSuggest.results.length ? (
         <>
           <p className={styles.Suggest}>Users to follow</p>
-          {profileSuggest.results.slice(0,5).map((profile) => (
+          {profileSuggest.results.slice(0, 5).map((profile) => (
             <Profile key={profile.id} profile={profile} />
           ))}
         </>
       ) : (
-        <Loading />
+        <div className={styles.Results}>
+          <Loading />
+        </div>
       )}
     </div>
   );

@@ -1,6 +1,13 @@
 .Suggest {
-    font-weight: 600;
-    font-size: 1.2rem;
-    padding: 0.4rem 1rem;
-    margin: 0;
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 0.4rem 1rem;
+  margin: 0;
+}
+
+.Results {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  padding: 2rem;
 }
