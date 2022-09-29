@@ -27,7 +27,7 @@ The main goal for the project is to build a music sharing platform which allows 
 
 ## User Stories
 
-The user stories were split into EPICS so that I could utilise GitHub projects and build the site with an agile approach. These were as follows:
+The user stories were split into EPICS so that I could utilise GitHub projects and build the site with an agile approach (These can be viewed via the repository). These were as follows:
 
 ### User Authentication
 
@@ -62,7 +62,112 @@ The user stories were split into EPICS so that I could utilise GitHub projects a
 - As a user I can search the site so that I can find the specific content I am looking for
 - As a user I can intuitively navigate the site so that I can access all content and features
 
+## Design
 
+### Colour Scheme
+
+The main colour scheme for the website is based on white & gray to keep things clean and simple. A teal colour was then used to accentuate other features/elements such as hovering over links, or the background colour for forms.
+
+<img src="src/assets/screenshots/colourscheme.png">
+
+## Fonts
+
+For the site I made use of just one font, Titillium Web, which was taken from google fonts. I felt this matched the simplistic clean look I was aiming for.
+
+## Wireframes
+
+The wireframes for the site were made from https://wireframe.cc/ and are attahced below:
+
+- Desktop
+    - [Homepage](src/assets/wireframes/desktopfeed.png)
+    - [Blog post](src/assets/wireframes/desktopprofile.png)
+    - [Mix page](src/assets/wireframes/desktoptrack.png)
+
+- Tablet
+    - [Homepage](src/assets/wireframes/tabletfeed.png)
+    - [Blog post](src/assets/wireframes/tabletprofile.png)
+    - [Mix page](src/assets/wireframes/tablettrack.png)
+
+- Mobile
+    - [Homepage](src/assets/wireframes/mobilefeed.png)
+    - [Blog post](src/assets/wireframes/mobileprofile.png)
+    - [Mix page](src/assets/wireframes/mobiletrack.png)
+
+## Features
+
+### Navigation Bar
+
+- Displays the logo, which can be clicked to get back to the home page
+- Displays naivgation links depending on users authentication status
+
+(Meets authentication user story 1 - 3, tracks 3 & navigation 2)
+
+<img src="src/assets/nav/navlogin.png" width=1000>
+<img src="src/assets/nav/navlogout.png" width=1000>
+
+### Search
+
+- Filters search results and displays relevant tracks to the user
+
+(Meets navigation user story 1)
+
+<img src="src/assets/feed/search.png" width=600>
+
+### Profile Suggest
+
+- Displays other users on the home page/feed
+
+(Meets profile user story 1 & 2)
+
+<img src="src/assets/profile/profilesuggest.png" width=400>
+
+### User Profile
+
+- Displays user image, bio, stats, liked tracks & reposts
+
+(Meets profile user story 1 & 3, feed 1)
+
+<img src="src/assets/profile/userprofile.png" width=600>
+
+### Profile Edit
+
+- Allows users to update their profile and also their log in details
+
+(Meets profile user story 4 & 5)
+
+<img src="src/assets/profile/profileedit.png" width=600>
+<img src="src/assets/profile/profileeditform.png" width=600>
+<img src="src/assets/profile/passwordeditform.png" width=600>
+<img src="src/assets/profile/usernameeditform.png" width=600>
+
+### Track Page
+
+- Allows users to comment on one anothers tracks and interact with one another
+- Allows users to update/delete their own tracks or like/repost other users tracks
+
+(Meets tracks user story 1,2 & 4)
+
+<img src="src/assets/track/trackpage.png" width=800>
+
+### Track Edit Form
+
+- Allows users to update/delete their own tracks
+
+(Meets tracks user story 2)
+
+<img src="src/assets/track/trackeditform.png" width=800>
+
+
+### Feed
+
+- Allows users to see posts by all the users they are following and interact with them
+
+(Meets feed users story 1-3)
+
+<img src="src/assets/feed/feed.png" width=800>
+
+
+ 
 
 
 
