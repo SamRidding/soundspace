@@ -27,7 +27,7 @@ The main goal for the project is to build a music sharing platform which allows 
 
 ## User Stories
 
-The user stories were split into EPICS so that I could utilise GitHub projects and build the site with an agile approach (These can be viewed via the repository). These were as follows:
+The user stories were split into EPICS so that I could utilise GitHub projects and build the site with an agile approach, splitting these into sprints - see [here](https://github.com/vfg-95/soundspace/projects/1). These were as follows:
 
 ### User Authentication
 
@@ -93,7 +93,7 @@ The wireframes for the site were made from https://wireframe.cc/ and are attahce
     - [Blog post](src/assets/wireframes/mobileprofile.png)
     - [Mix page](src/assets/wireframes/mobiletrack.png)
 
-## Features
+## Features & User Story Testing
 
 ### Navigation Bar
 
@@ -168,11 +168,41 @@ The wireframes for the site were made from https://wireframe.cc/ and are attahce
 
 ## Front End Development
 
-Front end developers are responsible for handling the side of an applicaiton which users will be using. Front end developers will work as part of a development team with both UI/UX designers and the team handling the back end of an application. Their main objectives are to provide user friendly applications which meet performance, accessability & responsivity standards. Front end developers will still typically need a good understanding of all aspects of the project development in order to provide the best possible end product.
+Front end developers are responsible for handling the user-facing side of an applicaiton. Front end developers will work as part of a development team with both UI/UX designers and the team handling the back end of an application. Their main objectives are to provide user friendly applications which meet performance, accessability & responsivity standards. Front end developers will still typically need a good understanding of all aspects of the project development in order to provide the best possible end product.
 
 React enables front end developers to provide great user experience. One of they key features of react is the reuse of components across code. For example, in this project I make use of a loading component, which can then be imported into any other page and implemented. The same loading compent is displayed across the site whenever data is being retrieved from the API - this can be when tracks are loading in the feed/home page, when suggested profiles are loading, or while liked tracks/reposts are loading on the profile page. Another key feature of react is the virtual DOM. This allows components to re-render accordingly without the need to refresh the page - for example on this site when a user follows another user the follow button will render to say unfollow.
 
 In the project I also made use of React Bootstrap. This front end end library again allows you to quickly and easily implement components like a repsonsive Navbar, or forms. Combined with the features of React these allow you to build cohesive rich user interfaces, which are hallmarks of good front end development and were why they were a good choice/combination for the project.
+
+## Programs, Libraries, Frameworks and Dependencies
+
+- [Gitpod](https://gitpod.io)
+  - Gitpod to host a virtual workspace.
+- [Git](https://git-scm.com/)
+  - Git for version control by utilizing the Gitpod terminal to commit and push to GitHub and Heroku.
+- [GitHub](https://github.com/)
+  - GitHub to store the project code after being pushed from Git.
+- [React 17](https://17.reactjs.org/)
+  - React Router for dynamic routing.
+- [Axios](https://axios-http.com/docs/intro)
+  - Axios for promise-based HTTP.
+- [React Router](https://v5.reactrouter.com/web/guides/quick-start)
+  - React Router for dynamic routing.
+- [JWT](https://jwt.io/)
+  - JWT for tokens and timestamping tokens.
+- [React-Bootstrap 1.6](https://react-bootstrap-v4.netlify.app/)
+  - React-Bootstrap for styling and responsiveness.
+- [Heroku](https://id.heroku.com/login)
+  - Heroku to host both the frontend and backends applications and connect them.
+- [Google Fonts](https://fonts.google.com/)
+  - Google fonts for importing the Roboto Condensed font.
+- [Font Awesome](https://fontawesome.com/)
+  - Font Awesome for icons.
+
+## Testing
+
+I tested the site using W3C Markup Validator, W3C CSS Validator Services and ESLint.
+
 
 
 

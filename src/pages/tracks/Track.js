@@ -188,21 +188,6 @@ const Track = (props) => {
       <div className={styles.interact}>
         {is_owner ? trackOwnerIcons : trackIcons}
       </div>
-
-      {/* <div className={styles.midcontain}>
-        <div className={styles.UserInfo}>
-          <Link
-            to={`/profiles/${profile_id}`}
-            style={{ textDecoration: "none" }}
-          >
-            <div>
-              <UserPic src={profile_img} />
-            </div>
-            <div>{owner}</div>
-          </Link>
-        </div>
-        <div>{content}</div>
-      </div> */}
     </div>
   );
 };
