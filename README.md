@@ -64,6 +64,8 @@ The user stories were split into EPICS so that I could utilise GitHub projects a
 
 ## Design
 
+The site was designed with a desktop first approach, as it's main intended use it to be via desktop browsers.
+
 ### Colour Scheme
 
 The main colour scheme for the website is based on white & gray to keep things clean and simple. A teal colour was then used to accentuate other features/elements such as hovering over links, or the background colour for forms.
@@ -203,6 +205,82 @@ In the project I also made use of React Bootstrap. This front end end library ag
 
 I tested the site using W3C Markup Validator, W3C CSS Validator Services and ESLint.
 
+- [W3C Markup Validator](https://validator.w3.org/) Passed with no errors
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) Passed with no errors
+- [ESLint](https://eslint.org/play/) I ran all my Javascript files through here which showed no relevant errors. I had installed ESLint into the project however due to time constraints I did not have time to figure out configuration and test it this way.
+
+Lighthouse testing displayed these results:
+
+<img src="src/assets/screenshots/lighthouse.png" width=600 >
+
+### Manual Testing
+
+Below is a screenshot of the manual testing process undertaken on the site:
+
+<img src="src/assets/screenshots/manualtesting.png">
+
+### Bugs
+
+- When trying to log into the site on Safari, where it instead refreshes the page and does not allow you to log in. This is rectified by turning off 'Prevent cross site tracking' in the privacy settings of the browser.
+
+The following bugs I am aware of but due to time constraints I did not have time to debug these:
+
+- In the comment section of track pages the user profile image displays all users with the current user's profile image
+- The track upload form accepts images and submits sucessfully, however once submitted the value in the database is null
+
+## Future Development
+
+There is plenty of scope for future development with the site, I would like to implement:
+
+- Allow users to upload actual audio files to the site and host them
+- Update the like & repost sections with small renders of the uploaded audio
+- Allow users to update their comments
+- Add user messaging so users can direct message one another
+- Allow users to add a header image for the background of their profile
+- Improve mobile funcitonailty so all the same features are accessable as on desktop
+
+## Development
+
+1.  Clone the template [repository](https://github.com/TimSchulz1991/project5-8gag-react).
+2.  Open your IDE and connect to your repo, then enter this command in the terminal:
+
+        npm install
+
+- Ensure package.json dependencies are as follows:
+
+      "dependencies": {
+        "@testing-library/jest-dom": "^5.16.4",
+        "@testing-library/react": "^11.2.7",
+        "@testing-library/user-event": "^13.5.0",
+        "axios": "^0.27.2",
+        "bootstrap": "^4.6.0",
+        "jwt-decode": "^3.1.2",
+        "react": "^17.0.2",
+        "react-bootstrap": "^1.6.3",
+        "react-dom": "^17.0.2",
+        "react-infinite-scroll-component": "^6.1.0",
+        "react-router-dom": "^5.3.0",
+        "react-scripts": "5.0.1",
+        "web-vitals": "^2.1.4"
+      },
+
+3.  Add url for the deployed DRF API in the axiosDefaults.js file (as baseURL).
+3.  Git add, commit and push all changes to your repo.
+4.  Create or log in to an account on Heroku.
+5.  Create a new app on Heroku.
+6.  Link your GitHub repository in the deploy tab of Heroku.
+7.  Enable automatic deployments or do this manually.
+
+## Credits
+
+A lot of the code/functionality for the site was based upon the Code Institute Moments walkthrough [project]([GitHub](https://github.com/Code-Institute-Solutions/moments)) as there were plenty of features which I wanted to include in my own site.
+
+The general idea for the site was also based upon [SoundCloud](https://soundcloud.com/) and this is where I took a lot of inspiration for the site.
+
+I made imitation profiles for my site based upon real SoundCloud accounts, as well as the media used for them. Credit for those below:
+
+- [Oddity-Radio](https://soundcloud.com/oddityradio)
+- [Telephones](https://soundcloud.com/telephones)
 
 
 
