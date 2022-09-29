@@ -166,8 +166,22 @@ The wireframes for the site were made from https://wireframe.cc/ and are attahce
 
 <img src="src/assets/feed/feed.png" width=800>
 
+## Front End Development
 
- 
+Front end developers are responsible for handling the side of an applicaiton which users will be using. Front end developers will work as part of a development team with both UI/UX designers and the team handling the back end of an application. Their main objectives are to provide user friendly applications which meet performance, accessability & responsivity standards. Front end developers will still typically need a good understanding of all aspects of the project development in order to provide the best possible end product.
+
+React enables front end developers to provide great user experience. One of they key features of react is the reuse of components across code. For example, in this project I make use of a loading component, which can then be imported into any other page and implemented. The same loading compent is displayed across the site whenever data is being retrieved from the API - this can be when tracks are loading in the feed/home page, when suggested profiles are loading, or while liked tracks/reposts are loading on the profile page. Another key feature of react is the virtual DOM. This allows components to re-render accordingly without the need to refresh the page - for example on this site when a user follows another user the follow button will render to say unfollow.
+
+In the project I also made use of React Bootstrap. This front end end library again allows you to quickly and easily implement components like a repsonsive Navbar, or forms. Combined with the features of React these allow you to build cohesive rich user interfaces, which are hallmarks of good front end development and were why they were a good choice/combination for the project.
+
+
+
+
+
+
+
+
+
 
 
 
