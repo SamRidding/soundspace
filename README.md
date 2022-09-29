@@ -168,6 +168,12 @@ The wireframes for the site were made from https://wireframe.cc/ and are attahce
 
 <img src="src/assets/feed/feed.png" width=800>
 
+## Database / API
+
+The API for the project was built with Django REST Framework, the repository for that is [here](https://github.com/vfg-95/ss_api).
+
+The [readme](https://github.com/vfg-95/ss_api/blob/main/README.md) file contains all the information on the database, testing & deployment.
+
 ## Front End Development
 
 Front end developers are responsible for handling the user-facing side of an applicaiton. Front end developers will work as part of a development team with both UI/UX designers and the team handling the back end of an application. Their main objectives are to provide user friendly applications which meet performance, accessability & responsivity standards. Front end developers will still typically need a good understanding of all aspects of the project development in order to provide the best possible end product.
