@@ -177,8 +177,8 @@ const Track = (props) => {
   return (
     <div className={styles.pagecontain}>
       <div className={styles.topcontain}>
-        <Link to={`/tracks/${id}`} className={styles.TrackTitle}>
-          <h2>{title}</h2>
+        <Link to={`/tracks/${id}`} className={styles.TrackTitleContain}>
+          <h2 className={styles.TrackTitle}>{title}</h2>
         </Link>
         <div className={styles.audio}>
           <ReactPlayer url={audio} width="100%" height="100%" />

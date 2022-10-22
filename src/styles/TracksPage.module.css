@@ -10,7 +10,7 @@
 }
 
 .TPleft {
-  width: 65%;
+  width: 80%;
 }
 
 .search {
@@ -56,7 +56,6 @@
 }
 
 .TPright {
-  width: 25%;
   border-left: 1px solid rgb(190, 190, 190);
   padding-left: 1rem;
 }
@@ -71,28 +70,9 @@
     justify-content: center;
   }
 
-  .TPleft {
-    width: 65%;
-  }
-
-  .TPright {
-    width: 35%;
-  }
 }
 
-@media (max-width: 768px) {
-
-  .TPleft {
-    width: 85%;
-  }
-
-  .TPright {
-    width: 15%;
-  }
-
-}
-
-@media (max-width: 480px) {
+@media (max-width: 520px) {
 
   .TPleft {
     width: 100%;
@@ -100,6 +80,10 @@
 
   .TPright {
     display: none;
+  }
+
+  .TPcontain {
+    width: 100%;
   }
 
 }
