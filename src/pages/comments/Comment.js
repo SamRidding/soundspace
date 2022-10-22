@@ -58,11 +58,11 @@ const Comment = (props) => {
             <div>
               <span>
                 <i
-                  class="fas fa-edit"
+                  className="fas fa-edit"
                 ></i>
               </span>
               <span onClick={handleDelete}>
-                <i class="fas fa-trash"></i>
+                <i className="fas fa-trash"></i>
               </span>
             </div>
           ) : (

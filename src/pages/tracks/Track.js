@@ -104,7 +104,7 @@ const Track = (props) => {
         <Link to={`/tracks/${id}`}>
           <span style={{ textDecoration: "none" }}>
             <div className={styles.ibtn}>
-              <i class="fas fa-comment"></i>
+              <i className="fas fa-comment"></i>
               Comment
             </div>
           </span>
@@ -115,7 +115,7 @@ const Track = (props) => {
           title="Log in to comment on tracks"
         >
           <div className={styles.ibtn}>
-            <i class="fas fa-comment"></i>
+            <i className="fas fa-comment"></i>
             Comment
           </div>
         </span>
@@ -154,20 +154,20 @@ const Track = (props) => {
       <Link to={`/tracks/${id}`}>
         <span style={{ textDecoration: "none" }}>
           <div className={styles.ibtn}>
-            <i class="fas fa-comment"></i>
+            <i className="fas fa-comment"></i>
             Comment
           </div>
         </span>
       </Link>
       <span style={{ textDecoration: "none" }} onClick={handleEdit}>
         <div className={styles.ibtn}>
-          <i class="fas fa-edit"></i>
+          <i clasName="fas fa-edit"></i>
           Edit
         </div>
       </span>
       <span style={{ textDecoration: "none" }} onClick={handleDelete}>
         <div className={styles.ibtn}>
-          <i class="fas fa-trash"></i>
+          <i className="fas fa-trash"></i>
           Delete
         </div>
       </span>

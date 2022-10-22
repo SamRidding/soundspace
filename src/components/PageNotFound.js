@@ -7,7 +7,7 @@ const PageNotFound = () => {
     <div className={styles.PNFcontain}>
       <Link to={"/"} className={styles.PNFlink}>
         <div className={styles.PNFmessage}>
-          <i class="fas fa-exclamation-circle fa-5x"></i>
+          <i className="fas fa-exclamation-circle fa-5x"></i>
           <h1>Page not found</h1>
           <p>Click here to return to the home page</p>
         </div>

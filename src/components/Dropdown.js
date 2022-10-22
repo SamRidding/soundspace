@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 
 const EditBtn = React.forwardRef(({ onClick }, ref) => (
   <i
-    class="fas fa-edit"
+    className="fas fa-edit"
     ref={ref}
     onClick={(e) => {
       e.preventDefault();
