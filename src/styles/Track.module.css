@@ -61,7 +61,7 @@
     color: white;
 }
 
-.TrackTitle:hover {
+.TrackTitleContain:hover {
     text-decoration: none;
     color: #146C78;
 }
